@@ -1,0 +1,59 @@
+:root {
+  --font-mono:  'Roboto Mono',  'Source Code Pro', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+ 'Oxygen Mono', 'Ubuntu Monospace',
+  'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --background: #ffffff;
+  --primary-white: #ffffff;
+  --calc-rem: calc(14px + (20.56 - 14) * ((100vw - 280px) / (3840 - 280)));
+  --font-medium: 0.8rem;
+
+}
+
+* {
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+user-select: none;
+}
+
+html,
+body {
+max-width: 100vw;
+overflow-x: hidden;
+background-color: var(--background);
+font-family: var(--font-Roboto), var(--font-mono);
+font-size: var(--calc-rem);
+scroll-behavior: smooth;
+scrollbar-gutter: stable;
+scroll-padding: 0 0.2rem; 
+
+}
+
+/* Agrega estos estilos al archivo CSS correspondiente */
+
+/* Estilos para la barra de desplazamiento en general */
+::-webkit-scrollbar {
+width: 6px; /* Ancho de la barra de desplazamiento */
+height: 6px; /* Altura de la barra de desplazamiento (solo en caso de barra vertical) */
+}
+
+/* Estilos para el "pulgador" (la parte que se arrastra) de la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+background-color: #aaa; /* Color del pulgador */
+border-radius: 3px; /* Bordes redondeados */
+}
+
+/* Estilos para el "pulgador" cuando se le pasa el mouse por encima */
+::-webkit-scrollbar-thumb:hover {
+background-color: #888; /* Color del pulgador al pasar el mouse por encima */
+}
+
+/* Estilos para la barra de desplazamiento de fondo (zona no ocupada por el pulgador) */
+::-webkit-scrollbar-track {
+background-color: #f1f1f1; /* Color de fondo de la barra de desplazamiento */
+}
+
+/* Estilos para la barra de desplazamiento de fondo cuando se le pasa el mouse por encima */
+::-webkit-scrollbar-track:hover {
+background-color: #ddd; /* Color de fondo al pasar el mouse por encima */
+}
