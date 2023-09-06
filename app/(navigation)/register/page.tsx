@@ -18,6 +18,9 @@ const Register = () => {
   }
   return (
     <div className={styles.containerAll}>
+      <div className={styles.dada}>
+
+      
       <div className={styles.container}>
           <div className={styles.title}>
             <h3>Instagram</h3>
@@ -55,18 +58,31 @@ const Register = () => {
                 placeholder={"Contraseña"}
               />
             </div>
-            <div>
+            <div className={styles.capchat}>
                <span>
-               Es posible que los usuarios de nuestro servicio hayan subido tu información de contacto en Instagram. Más información
+               Es posible que los usuarios de nuestro servicio hayan subido tu información de contacto en Instagram.<span className={styles.spanCapchat}>Más información</span>
                </span>
             </div>
-            <div>
+            <div className={styles.capchat}>
                <span>
-               Al registrarte, aceptas nuestras Condiciones, nuestra Política de privacidad y nuestra Política de cookies.
+               Al registrarte, aceptas nuestras <span className={styles.spanCapchat}>Condiciones, nuestra Política de privacidad y nuestra Política de cookies.</span>
                </span>
             </div>
+            <button className={styles.btnRegister}>Registrate</button>
+      </div>
+      <div className={styles.container2}>
+          <span>¿Tienes una cuenta?</span><span>Entrar</span>
+      </div>
+      <div className={styles.container3}>
+          <span>Descarga la aplicación.</span>
+          <div className={styles.containerImageAll}>
+            <div className={styles.containerImage}><img src="/images/Googleplay.png" alt="Googleplay" /></div>
+            <div className={styles.containerImage}><img src="/images/Microsoft.png" alt="Microsoft" /></div>    
+          </div>
       </div>
     </div>
+    </div>
+
   )
 }
 

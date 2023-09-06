@@ -5,13 +5,49 @@
     justify-content: center;
     padding-top: 0.7rem;
 }
-
+.dada { 
+    display: flex;
+    flex-direction: column;
+}
 .container { 
     width: 19rem;
     padding: 2rem;
     border: 0.1px solid rgb(202, 202, 202);
+    height: max-content;
 }
 
+.container2 {
+    width: 19rem;
+    padding: 1.2rem;
+    border: 0.1px solid rgb(202, 202, 202);
+    height: max-content;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.container3 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: 19rem;
+    border: none;
+    height: max-content;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 12px;
+}
+.containerImageAll {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+}
+.containerImage img {
+    height: 100%;
+    width: 100%;
+}
 .title { 
     width: 100%;
     display: flex;
@@ -39,6 +75,30 @@
 }
 
 .containerInput {
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
     padding-top: 10px;
+}
+
+.capchat { 
+    font-size: 10px;
+    color: var(--span);
+    margin-top: 10px;
+    text-align: center;
+}
+
+.spanCapchat {
+    color: var(--span-private);
+}
+
+.btnRegister {
+    width: 100%;
+    background-color: #49aef1;
+    color: var(--primary-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    height: 25px;
+    margin-top: 1rem;
 }
