@@ -2,11 +2,14 @@
   --font-mono:  'Roboto Mono',  'Source Code Pro', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
  'Oxygen Mono', 'Ubuntu Monospace',
   'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-  --background: #ffffff;
+  --background: #FAFAFA;
   --primary-white: #ffffff;
+  --span: #737373;
+  --span-private: #00376B;
+  --background-facebook: #0095F6;
   --calc-rem: calc(14px + (20.56 - 14) * ((100vw - 280px) / (3840 - 280)));
   --font-medium: 0.8rem;
-
+  --primary-black: #000000;
 }
 
 * {

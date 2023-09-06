@@ -1,0 +1,44 @@
+.containerAll { 
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.7rem;
+}
+
+.container { 
+    width: 19rem;
+    padding: 2rem;
+    border: 0.1px solid rgb(202, 202, 202);
+}
+
+.title { 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    color: var(--primary-black);
+    margin-bottom: 8px;
+}
+.span { 
+    color: var(--span);
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+.btn {
+   width: 100%;
+   background-color: var(--background-facebook);
+   color: var(--primary-white);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border: none;
+   border-radius: 5px;
+   height: 25px;
+   margin-bottom: 1rem;
+}
+
+.containerInput {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
