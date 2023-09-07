@@ -80,6 +80,12 @@ const Menu = () => {
        </div>
 
       </div>
+
+
+      <div className={styles.menuFooter}>
+        <span>About-Help-Press-API-Jobs-Privacy-Terms-Locations-Top Accounts-Hashtags-lenguage</span>
+        <span>© 2023 INSTAGRAM FROM FACEBOOK</span>
+      </div>
     </div>
   )
 }

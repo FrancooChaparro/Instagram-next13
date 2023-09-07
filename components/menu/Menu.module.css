@@ -2,8 +2,9 @@
     width: 21rem;
     border: 0.1px solid rgb(202, 202, 202);
     height: max-content;
-    padding-bottom: 1rem;
+    /* padding-bottom: 1rem; */
     margin-bottom: 2rem;
+    margin-top: 1rem;
   }
   .containerHeader {
     padding: 0.5rem;
@@ -90,3 +91,11 @@
     font-size: 14px;
     color: var(--background-facebook);
   }
+
+.menuFooter {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    padding: 0.5rem;
+    color: var(--span);
+}
