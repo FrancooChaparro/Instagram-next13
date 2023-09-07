@@ -1,0 +1,98 @@
+.containerAll {
+  width: 100%;
+  border: 0.1px solid rgb(202, 202, 202);
+  height: max-content;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+.containerHeader {
+  padding: 0.5rem;
+  display: flex;
+}
+.containerImage {
+  border-radius: 100%;
+  height: 2.8rem;
+  width: 2.8rem;
+  border: 2px solid salmon;
+  background-color: yellow;
+}
+.containerBtn {
+  width: 100%;
+  border: 0.1px solid rgb(202, 202, 202);
+  border-bottom: none;
+  padding: 0.5rem;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
+  display: flex;
+}
+.containerUser {
+  width: 100%;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
+  margin-bottom: 1rem;
+}
+.containerUser div { 
+    display: flex;
+}
+.containerUser div h4 { 
+    padding-right: 3px;
+}
+.containerImage img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.containerInfo {
+  display: flex;
+  height: 100%;
+  font-size: 14px;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+}
+
+.containerHeader .containerElipsis {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+.containerElipsis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+
+.containerPhoto {
+  height: 30rem;
+  width: 100%;
+  background-color: yellow;
+}
+.containerPhoto img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.containerIcons {
+    font-size: 25px;
+    padding-right: 1rem;
+}
+.containerBtn .containerIconsFinal { 
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+    font-size: 25px;
+}
+
+.containerComments {
+    width: 100%;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+}
+.coment {
+    display: flex;
+}

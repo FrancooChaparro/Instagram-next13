@@ -8,8 +8,8 @@
     overflow-y: hidden;
 }
 .containerHistory {
-    height: 6rem;
-    width:5rem;
+    height: 5rem;
+    width:4rem;
     margin-right: 0.8rem;
     /* background-color: yellowgreen; */
 }
@@ -28,8 +28,8 @@
     align-items: center;
     border-radius:100%;
     border: 3px solid rgb(205, 33, 228);
-    height: 5rem;
-    width: 5rem;
+    height: 4rem;
+    width: 4rem;
 }
 .history img { 
    width: 100%;
