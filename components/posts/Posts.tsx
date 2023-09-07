@@ -43,22 +43,18 @@ const Posts = () => {
        <div className={styles.containerUser}>
           <h4>73 Likes</h4>
           <div >
-           <h4>Franco Chaparro</h4>
-           <h4>Lorem ip elit. Illo laborum, unde necessitatibus dolorem</h4>
+           <h4><strong>Franco Chaparro</strong> Lorem ip elit. Illo laborum, unde necessitatibus dolorem</h4>
           </div>
        </div>
       <div className={styles.containerComments}>
       <div className={styles.coment}>
-           <h4>Franco Chaparro</h4>
-           <h4>Lorem ip elit. Illo laborum, unde necessitatibus dolorem</h4>
+          <h4><strong>Franco Chaparro</strong> Lorem ip elit. Illo laborum, unde necessitatibus dolorem</h4>
           </div>
           <div className={styles.coment}>
-           <h4>Franco Chaparro</h4>
-           <h4>Lorem ip elit. Illo laborum, unde necessitatibus dolorem</h4>
+          <h4><strong>Franco Chaparro</strong> Lorem ip elit. Illo laborum, unde necessitatibus dolorem</h4>
           </div>
           <div className={styles.coment}>
-           <h4>Franco Chaparro</h4>
-           <h4>Lorem ip elit. Illo laborum, unde necessitatibus dolorem</h4>
+          <h4><strong>Franco Chaparro</strong> Lorem ip elit. Illo laborum, unde necessitatibus dolorem</h4>
           </div>
       </div>
     </div>

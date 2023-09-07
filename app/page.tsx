@@ -2,6 +2,7 @@ import Nav from '@/components/nav/Nav'
 import styles from './page.module.css'
 import { Historys } from '@/components/Historys/Historys'
 import Posts from '@/components/posts/Posts'
+import Menu from '@/components/menu/Menu'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <Posts/>
         <Posts/>
         <Posts/>
+        <div className={styles.menu}><Menu /></div>
       </div>
     </div>
   )
