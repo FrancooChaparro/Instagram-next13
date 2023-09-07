@@ -1,0 +1,13 @@
+.main { 
+    display: flex;
+    max-height: 100vh;
+}
+
+.hola {
+    width: 45rem;
+    max-height: max-content;
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    padding-left: 4rem;
+    padding-top: 1rem;
+}

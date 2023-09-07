@@ -1,0 +1,39 @@
+.containerAll {
+    padding: 0.7rem;
+    border: 0.1px solid rgb(202, 202, 202);
+    display: flex;
+    margin-bottom: 1rem;
+    width: 100%;
+    overflow-x: scroll; 
+    overflow-y: hidden;
+}
+.containerHistory {
+    height: 6rem;
+    width:5rem;
+    margin-right: 0.8rem;
+    /* background-color: yellowgreen; */
+}
+.containerHistory span {
+    display: inline-block; /* Hace que el span se comporte como un bloque en línea */
+    width: 100%; /* Ocupa todo el ancho del div */
+    text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) cuando el contenido se desborda */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    white-space: nowrap; 
+    font-size: 13px;
+    padding-top: 4px;
+}
+.history { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:100%;
+    border: 3px solid rgb(205, 33, 228);
+    height: 5rem;
+    width: 5rem;
+}
+.history img { 
+   width: 100%;
+   height: 100%;
+   border-radius:100%;
+   object-fit: cover;
+}
