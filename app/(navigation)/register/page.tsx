@@ -3,8 +3,10 @@ import React, { useState } from 'react'
 import styles from "./Register.module.css";
 import { Input } from '@/components/Input/Input';
 import { LoginForm } from '@/app/types';
+import { useRouter } from 'next/navigation';
 
 const Register = () => {
+  const router = useRouter()
   const [inputValues, setInputValues] = useState<LoginForm>({
     email: "",
     password: "",
@@ -18,9 +20,7 @@ const Register = () => {
   }
   return (
     <div className={styles.containerAll}>
-      <div className={styles.dada}>
-
-      
+      <div className={styles.dada}>   
       <div className={styles.container}>
           <div className={styles.title}>
             <h3>Instagram</h3>
@@ -71,7 +71,7 @@ const Register = () => {
             <button className={styles.btnRegister}>Registrate</button>
       </div>
       <div className={styles.container2}>
-          <span>¿Tienes una cuenta?</span><span>Entrar</span>
+          <span>¿Tienes una cuenta?</span><span onClick={() => router.push("/login")} className={styles.entry}>Entrar</span>
       </div>
       <div className={styles.container3}>
           <span>Descarga la aplicación.</span>
