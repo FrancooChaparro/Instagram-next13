@@ -57,6 +57,9 @@ const Posts = () => {
           <span><strong>Franco Chaparro</strong> Lorem ip elit. Illo laborum, unde necessitatibus dolorem</span>
           </div>
       </div>
+        <div className={styles.addComment}>
+        <input type="text" placeholder="Add a comment..." />
+      </div>
     </div>
     
   );
