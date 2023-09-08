@@ -1,93 +1,38 @@
-import React from 'react'
+import React from "react";
 import styles from "./Menu.module.css";
+import { Suggestions } from "../Suggestions/Suggestions";
+import { MenuFooter } from "../MenuFooter/MenuFooter";
 
 const Menu = () => {
   return (
-     <div  className={styles.containerAll}>
-       <div className={styles.containerHeader}>
+    <div className={styles.containerAll}>
+      <div className={styles.containerHeader}>
         <div className={styles.containerImage}>
           <img src="/images/Googleplay.png" alt="Googleplay" />
         </div>
         <div className={styles.containerInfo}>
-          <strong><span>Franco</span></strong>
+          <strong>
+            <span>Franco</span>
+          </strong>
           <span>Franco Chaparro</span>
         </div>
         <div className={styles.containerElipsis}>
-          <span>swith</span>
+          <span>Swith</span>
         </div>
       </div>
       <div className={styles.containerSuggestionsHeader}>
-        <span>Suggestions For You</span>
-        <span>See All</span>
+        <span className={styles.spanA}>Suggestions For You</span>
+        <span className={styles.spanB}>See All</span>
       </div>
-
       <div className={styles.containerSuggestions}>
-
-      <div className={styles.containerUser}>
-        <div className={styles.containerUserImage}>
-          <img src="/images/Googleplay.png" alt="Googleplay" />
-        </div>
-        <div className={styles.containerUserInfo}>
-          <strong><span>Franco</span></strong>
-          <span>Franco Chaparro</span>
-        </div>
-        <div className={styles.containerUserElipsis}>
-          <span>Follow</span>
-        </div>
-       </div>
-
-
-       <div className={styles.containerUser}>
-        <div className={styles.containerUserImage}>
-          <img src="/images/Googleplay.png" alt="Googleplay" />
-        </div>
-        <div className={styles.containerUserInfo}>
-          <strong><span>Franco</span></strong>
-          <span>Franco Chaparro</span>
-        </div>
-        <div className={styles.containerUserElipsis}>
-          <span>Follow</span>
-        </div>
-       </div>
-
-
-       <div className={styles.containerUser}>
-        <div className={styles.containerUserImage}>
-          <img src="/images/Googleplay.png" alt="Googleplay" />
-        </div>
-        <div className={styles.containerUserInfo}>
-          <strong><span>Franco</span></strong>
-          <span>Franco Chaparro</span>
-        </div>
-        <div className={styles.containerUserElipsis}>
-          <span>Follow</span>
-        </div>
-       </div>
-
-
-
-       <div className={styles.containerUser}>
-        <div className={styles.containerUserImage}>
-          <img src="/images/Googleplay.png" alt="Googleplay" />
-        </div>
-        <div className={styles.containerUserInfo}>
-          <strong><span>Franco</span></strong>
-          <span>Franco Chaparro</span>
-        </div>
-        <div className={styles.containerUserElipsis}>
-          <span>Follow</span>
-        </div>
-       </div>
-
+        <Suggestions />
+        <Suggestions />
+        <Suggestions />
+        <Suggestions />
       </div>
-
-
-      <div className={styles.menuFooter}>
-        <span>About-Help-Press-API-Jobs-Privacy-Terms-Locations-Top Accounts-Hashtags-lenguage</span>
-        <span>© 2023 INSTAGRAM FROM FACEBOOK</span>
-      </div>
+      <MenuFooter />
     </div>
-  )
-}
+  );
+};
 
 export default Menu;
