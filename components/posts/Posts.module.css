@@ -14,13 +14,14 @@
   height: 2.8rem;
   width: 2.8rem;
   border: 2px solid salmon;
-  background-color: yellow;
+  cursor: pointer;
 }
 .containerBtn {
   width: 100%;
   border: 0.1px solid rgb(202, 202, 202);
   border-bottom: none;
-  padding: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.2rem;
   padding-left: 0.9rem;
   padding-right: 0.9rem;
   display: flex;
@@ -62,12 +63,12 @@
   justify-content: center;
   align-items: center;
   font-size: 25px;
+  cursor: pointer;
 }
 
 .containerPhoto {
   height: 30rem;
   width: 100%;
-  background-color: yellow;
 }
 .containerPhoto img {
   height: 100%;
@@ -80,12 +81,15 @@
 .containerIcons {
     font-size: 25px;
     padding-right: 1rem;
+    cursor: pointer;
 }
 .containerBtn .containerIconsFinal { 
     display: flex;
     justify-content: flex-end;
     margin-left: auto;
     font-size: 25px;
+    cursor: pointer;
+
 }
 
 .containerComments {

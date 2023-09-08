@@ -9,7 +9,7 @@ const Nav = () => {
   return (
     <div className={styles.containerAll}>
          <div className={styles.title}>
-            <h3>Instagram</h3>
+           <img src="https://1000logos.net/wp-content/uploads/2017/02/Logo-Instagram.png" alt="logo" />
         </div>
         <div className={styles.containerSidebar}>
         <MdHomeFilled className={styles.icons}/><span>Home</span>
