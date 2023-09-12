@@ -7,8 +7,12 @@
     overflow-x: scroll; 
     overflow-y: hidden;
     margin-left: 5rem;
-
+    cursor: grab;
+    /* pointer-events: none; */
 }
+
+.containerAll::-webkit-scrollbar {             height: 0px;             background-color: transparent;         }
+
 .containerHistory {
     height: 5rem;
     width:4rem;

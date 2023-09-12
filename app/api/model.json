@@ -1,0 +1,49 @@
+{
+    "suggestions": [
+      {
+        "id": 1,
+        "username": "ROMA ",
+        "name": "Coca-cola Argentina",
+        "imagen": "https://ams3.digitaloceanspaces.com/graffica/2023/02/cocacola-logo-1024x696.jpeg"
+      },
+      {
+        "id": 2,
+        "username": "Pepsi",
+        "name": "Pepsi Argentina",
+        "imagen": "https://www.adlatina.com/uploads/img/220812052907_pepsi-adlatina.jpg"
+      },
+      {
+        "id": 3,
+        "username": "Boca",
+        "name": "Boca Juniors",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/4/41/CABJ70.png"
+      },
+      {
+        "id": 3,
+        "username": "Boca",
+        "name": "Boca Juniors",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/4/41/CABJ70.png"
+      }
+    ],
+    "posts": [
+      {
+        "id": 1,
+        "title": "Título del post 1",
+        "content": "Contenido del post 1",
+        "userId": 1
+      },
+      {
+        "id": 2,
+        "title": "Título del post 2",
+        "content": "Contenido del post 2",
+        "userId": 2
+      },
+      {
+        "id": 3,
+        "title": "Título del post 3",
+        "content": "Contenido del post 3",
+        "userId": 1
+      }
+    ]
+  }
+  

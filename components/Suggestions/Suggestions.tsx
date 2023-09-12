@@ -1,15 +1,24 @@
 import React from 'react';
 import styles from "../menu/Menu.module.css";
 
-export const Suggestions = () => {
+interface props {
+  username: string;
+  imagen: string;
+  name: string;
+
+}
+
+export const Suggestions: React.FC<props>  = ({
+  username, imagen, name
+}) => {
   return (
     <div className={styles.containerUser}>
     <div className={styles.containerUserImage}>
-      <img src="/images/Googleplay.png" alt="Googleplay" />
+      <img src={imagen} alt={name} />
     </div>
     <div className={styles.containerUserInfo}>
-      <strong><span>Franco</span></strong>
-      <span>Franco Chaparro</span>
+      <strong><span>{username}</span></strong>
+      <span>{name}</span>
     </div>
     <div className={styles.containerUserElipsis}>
       <span>Follow</span>

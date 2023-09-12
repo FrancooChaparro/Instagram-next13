@@ -2,8 +2,12 @@ import React from "react";
 import styles from "./Menu.module.css";
 import { Suggestions } from "../Suggestions/Suggestions";
 import { MenuFooter } from "../MenuFooter/MenuFooter";
+import model from "@/app/api/model.json"
 
+ 
 const Menu = () => {
+
+  
   return (
     <div className={styles.containerAll}>
       <div className={styles.containerHeader}>
@@ -25,10 +29,12 @@ const Menu = () => {
         <span className={styles.spanB}>See All</span>
       </div>
       <div className={styles.containerSuggestions}>
-        <Suggestions />
-        <Suggestions />
-        <Suggestions />
-        <Suggestions />
+        {model.suggestions.map(e=> {
+          return <Suggestions username={e.username}
+          name={e.name}
+          imagen={e.imagen}
+          />
+        })}
       </div>
       <MenuFooter />
     </div>
