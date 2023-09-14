@@ -3,6 +3,7 @@ import styles from "./Menu.module.css";
 import { Suggestions } from "../Suggestions/Suggestions";
 import { MenuFooter } from "../MenuFooter/MenuFooter";
 import model from "@/app/api/model.json"
+import Image from "next/image";
 
  
 const Menu = () => {
@@ -12,7 +13,14 @@ const Menu = () => {
     <div className={styles.containerAll}>
       <div className={styles.containerHeader}>
         <div className={styles.containerImage}>
-          <img src="/images/Googleplay.png" alt="Googleplay" />
+          {/* <img src="/images/Googleplay.png" alt="Googleplay" /> */}
+          <Image
+          src="/images/profile.jpg"
+          width={64}
+          height={64}
+          alt="Picture of the author"
+          style={{"objectFit": "cover", objectPosition: "center"}}
+        />
         </div>
         <div className={styles.containerInfo}>
           <strong>
