@@ -44,6 +44,18 @@
         "content": "Contenido del post 3",
         "userId": 1
       }
+    ],
+    "comments": [
+      {
+        "id": 1,
+        "username": "Franco Chaparro",
+        "content": "Get crypto analysis, news and updates right to your inbox! Sign up here so you don't miss a single newsletter."
+      },
+      {
+        "id": 2,
+        "username": "Marcos Aquino",
+        "content": "Be the first to know about crypto news every day"
+      }
     ]
   }
   

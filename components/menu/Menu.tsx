@@ -30,7 +30,7 @@ const Menu = () => {
       </div>
       <div className={styles.containerSuggestions}>
         {model.suggestions.map(e=> {
-          return <Suggestions username={e.username}
+          return <Suggestions key={e.id} username={e.username}
           name={e.name}
           imagen={e.imagen}
           />

@@ -4,6 +4,7 @@ import { AiOutlineEllipsis } from "react-icons/ai";
 import { FiSend, FiHeart } from "react-icons/fi"
 import { FaRegComment  } from "react-icons/fa"
 import { BsSave } from "react-icons/bs"
+import model from "@/app/api/model.json"
 
 const Posts = () => {
   return (
@@ -47,15 +48,13 @@ const Posts = () => {
           </div>
        </div>
       <div className={styles.containerComments}>
-      <div className={styles.coment}>
-          <span><strong>Franco Chaparro</strong> Lorem ip elit. Illo laborum, unde necessitatibus dolorem</span>
+
+      {model.comments.map(e=> {
+          return <div key={e.id} className={styles.coment}>
+          <span><strong style={{marginRight: "4px"}}>{e.username}</strong>{e.content}</span>
           </div>
-          <div className={styles.coment}>
-          <span><strong>Franco Chaparro</strong> Lorem ip elit. Illo laborum, unde necessitatibus dolorem</span>
-          </div>
-          <div className={styles.coment}>
-          <span><strong>Franco Chaparro</strong> Lorem ip elit. Illo laborum, unde necessitatibus dolorem</span>
-          </div>
+        })}
+
       </div>
         <div className={styles.addComment}>
         <input type="text" placeholder="Add a comment..." />
