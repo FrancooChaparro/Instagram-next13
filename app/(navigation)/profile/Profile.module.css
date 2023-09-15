@@ -1,0 +1,92 @@
+.main {
+    display: flex;
+}
+
+.containerProfile {
+    width: 100%;
+    padding-left: 4.5rem;   /* Espaciado interno en la dirección izquierda */
+    padding-right: 4.5rem;  /* Espaciado interno en la dirección derecha */
+    padding-top: 1.5rem;    /* Espaciado interno en la dirección arriba */
+    padding-bottom: 2rem; 
+}
+.containerHeader {
+    display: flex;
+}
+
+.containerProfileImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    background-color: rgb(50, 139, 216);
+}
+
+.containerProfileInfo {
+    background-color: aliceblue;
+    border: 1px solid slateblue;
+    max-width: 25rem;
+}
+
+.containerButtons{
+    display: flex;
+}
+
+.btnBlue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-facebook);
+    border: none;
+    width: 4.3rem;
+    height: 1.6rem;
+    color: white;
+    border-radius: 2px;
+    font-size: 13px;
+    margin-right: 0.5rem;
+}
+.btnBlue2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-facebook);
+    border: none;
+    width: 2.1rem;
+    height: 1.6rem;
+    color: white;
+    border-radius: 2px;
+    font-size: 13px;
+    margin-right: 0.5rem;
+}
+.message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.1rem solid grey;
+    width: 4.3rem;
+    height: 1.6rem;
+    color: rgb(17, 17, 17);
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.containerButtons span {
+    display: flex;
+    align-items: center;
+    margin-right: 3rem;
+}
+
+.containerFollow { 
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.containerTitle {
+    display: flex;
+    flex-direction: column;
+}
