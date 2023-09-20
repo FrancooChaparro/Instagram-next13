@@ -4,10 +4,13 @@
 
 .containerProfile {
     width: 100%;
-    padding-left: 4.5rem;   /* Espaciado interno en la dirección izquierda */
-    padding-right: 4.5rem;  /* Espaciado interno en la dirección derecha */
+    padding-left: 8.5rem;   /* Espaciado interno en la dirección izquierda */
+    padding-right: 8.5rem;  /* Espaciado interno en la dirección derecha */
     padding-top: 1.5rem;    /* Espaciado interno en la dirección arriba */
     padding-bottom: 2rem; 
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    height: 100%;
 }
 .containerHeader {
     display: flex;
@@ -17,18 +20,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10rem;
-    background-color: rgb(50, 139, 216);
+    width: 12rem;
 }
-
+.containerProfileImg img {
+    border-radius: 25rem;
+    border: 0.3rem solid salmon;
+}
 .containerProfileInfo {
-    background-color: aliceblue;
-    border: 1px solid slateblue;
-    max-width: 25rem;
+    background-color: rgb(255, 255, 255);
+    max-width: 22rem;
 }
 
 .containerButtons{
     display: flex;
+    justify-content: space-between;
 }
 
 .btnBlue {
@@ -42,7 +47,7 @@
     color: white;
     border-radius: 2px;
     font-size: 13px;
-    margin-right: 0.5rem;
+    margin-left: 0.5rem;
 }
 .btnBlue2 {
     display: flex;
@@ -55,7 +60,7 @@
     color: white;
     border-radius: 2px;
     font-size: 13px;
-    margin-right: 0.5rem;
+    margin-left: 0.5rem;
 }
 .message {
     display: flex;
@@ -68,13 +73,12 @@
     border-radius: 2px;
     font-size: 13px;
     font-weight: bold;
-    margin-right: 0.5rem;
 }
 
 .containerButtons span {
     display: flex;
     align-items: center;
-    margin-right: 3rem;
+    /* margin-right: 3rem; */
 }
 
 .containerFollow { 
@@ -89,4 +93,36 @@
 .containerTitle {
     display: flex;
     flex-direction: column;
+}
+
+.containerFlex {
+    display: flex;
+}
+
+
+.containerPosts {
+    border: 1px solid rgb(216, 216, 216);
+    border-bottom: none;
+    margin-top: 2rem;
+}
+
+.containerBrackets {
+    display: flex;
+    justify-content: center;
+}
+
+.containerBrackets span {
+    padding: 1rem;
+    font-weight: bold;
+    color: grey;
+    border-top: 1px solid rgb(29, 25, 25);
+}
+.containerImages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+.containerImages img{
+    width: 250px;
+    height: 250px;    
 }
