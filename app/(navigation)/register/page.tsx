@@ -1,9 +1,10 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from "./Register.module.css";
 import { Input } from '@/components/Input/Input';
 import { LoginForm } from '@/app/types';
 import { useRouter } from 'next/navigation';
+
 
 const Register = () => {
   const router = useRouter()
