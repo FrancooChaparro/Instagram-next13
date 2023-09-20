@@ -9,11 +9,10 @@ export async function POST(
   const {
     email,
     name,
-    password,
-    username
   } = body;
 
 
+console.log("llego???");
 
   const user = await prisma.user.create({
     data: {

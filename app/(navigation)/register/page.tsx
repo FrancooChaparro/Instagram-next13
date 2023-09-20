@@ -2,15 +2,40 @@
 import React, { useState, useEffect } from 'react'
 import styles from "./Register.module.css";
 import { Input } from '@/components/Input/Input';
-import { LoginForm } from '@/app/types';
+import { LoginForm, tester } from '@/app/types';
 import { useRouter } from 'next/navigation';
 
+async function registro (
+  email: string,
+  name: string
+) {
+  const requestOptions = {
+    method: 'POST', // Método POST
+    headers: {
+      'Content-Type': 'application/json', // Tipo de contenido que estás enviando (puedes ajustarlo según tus necesidades)
+      // Puedes incluir otras cabeceras aquí si es necesario
+    },
+    body: JSON.stringify({email, name}), // Convierte los datos en formato JSON
+  };
+   const res = await fetch("/api/register", requestOptions) 
+   .then(response => {
+    if (!response.ok) {
+      throw new Error('La solicitud no fue exitosa');
+    }
+    return response.json(); // Parsea la respuesta JSON si se recibe una respuesta exitosa
+  })
+  .then(data => {
+    // Manejar los datos de la respuesta aquí
+    console.log(data);
+  })
+}
 
 const Register = () => {
+  
   const router = useRouter()
-  const [inputValues, setInputValues] = useState<LoginForm>({
+  const [inputValues, setInputValues] = useState<tester>({
     email: "",
-    password: "",
+    name: "",
   });
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -34,28 +59,28 @@ const Register = () => {
                 Onchange={handleChange}
                 value={inputValues.email}
                 name={"email"}
-                type={"text"}
+                type={"email"}
                 placeholder={"Correo electronico"}
               />
             <Input
                 Onchange={handleChange}
-                value={inputValues.email}
-                name={"email"}
+                value={inputValues.name}
+                name={"name"}
                 type={"text"}
                 placeholder={"Nombre completo"}
               />
                <Input
                 Onchange={handleChange}
                 value={inputValues.email}
-                name={"email"}
+                name={"username"}
                 type={"text"}
                 placeholder={"Nombre de usuario"}
               />
                <Input
                 Onchange={handleChange}
                 value={inputValues.email}
-                name={"email"}
-                type={"text"}
+                name={"password"}
+                type={"password"}
                 placeholder={"Contraseña"}
               />
             </div>
@@ -69,7 +94,7 @@ const Register = () => {
                Al registrarte, aceptas nuestras <span className={styles.spanCapchat}>Condiciones, nuestra Política de privacidad y nuestra Política de cookies.</span>
                </span>
             </div>
-            <button className={styles.btnRegister}>Registrate</button>
+            <button onClick={()=> registro(inputValues.email, inputValues.name)} className={styles.btnRegister}>Registrate</button>
       </div>
       <div className={styles.container2}>
           <span>¿Tienes una cuenta?</span><span onClick={() => router.push("/login")} className={styles.entry}>Entrar</span>
