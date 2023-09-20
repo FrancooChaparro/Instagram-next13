@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "../menu/Menu.module.css";
+import Image from 'next/image';
 
 interface props {
   username: string;
@@ -14,7 +15,12 @@ export const Suggestions: React.FC<props>  = ({
   return (
     <div className={styles.containerUser}>
     <div className={styles.containerUserImage}>
-      <img src={imagen} alt={name} />
+      <Image 
+      src={`/${imagen}`}
+      alt={name}
+      width={35.2}
+      height={35.2}
+      />
     </div>
     <div className={styles.containerUserInfo}>
       <strong><span>{username}</span></strong>

@@ -4,25 +4,25 @@
         "id": 1,
         "username": "ROMA ",
         "name": "Coca-cola Argentina",
-        "imagen": "https://ams3.digitaloceanspaces.com/graffica/2023/02/cocacola-logo-1024x696.jpeg"
+        "imagen": "images/profile.jpg"
       },
       {
         "id": 2,
         "username": "Pepsi",
         "name": "Pepsi Argentina",
-        "imagen": "https://www.adlatina.com/uploads/img/220812052907_pepsi-adlatina.jpg"
+        "imagen": "images/profile.jpg"
       },
       {
         "id": 3,
         "username": "Boca",
         "name": "Boca Juniors",
-        "imagen": "https://upload.wikimedia.org/wikipedia/commons/4/41/CABJ70.png"
+        "imagen": "images/profile.jpg"
       },
       {
         "id": 3,
         "username": "Boca",
         "name": "Boca Juniors",
-        "imagen": "https://upload.wikimedia.org/wikipedia/commons/4/41/CABJ70.png"
+        "imagen": "images/profile.jpg"
       }
     ],
     "posts": [
