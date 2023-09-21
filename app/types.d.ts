@@ -20,4 +20,30 @@ export interface Post {
     image: string,
     liked: boolean,
     authorId: number
+    author: {
+        id: string
+        email: string
+        name: string
+        username: string
+        password: string
+        image: string
+    }
+}
+
+export interface User { 
+        id: number,
+        email: string,
+        name: string,
+        username:string,
+        password: string,
+        image: string,
+        posts?: [
+            {
+                id: number,
+                title: string,
+                image: string,
+                liked: false,
+                authorId: number
+            },
+        ]
 }

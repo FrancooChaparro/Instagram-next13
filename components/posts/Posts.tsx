@@ -13,10 +13,17 @@ interface props {
   image: string,
   liked: boolean,
   authorId: number
-
+  author: {
+    id: string
+    email: string
+    name: string
+    username: string
+    password: string
+    image: string
+}
 }
 const Posts: React.FC<props> = ({ 
-  title, image, liked, authorId
+  title, image, liked, author
 }) => {
 
   return (
@@ -24,7 +31,7 @@ const Posts: React.FC<props> = ({
       <div className={styles.containerHeader}>
         <div className={styles.containerImage}>
           <Image
-          src="/images/adad.webp"
+          src={author.image}
           width={44.8}
           height={44.8}
           alt="Picture of the author"
@@ -32,7 +39,7 @@ const Posts: React.FC<props> = ({
         />
         </div>
         <div className={styles.containerInfo}>
-          <span>Franco Chaparro</span>
+          <span>{author.name}</span>
           <span>Buenos Aires, Argentina</span>
         </div>
         <div className={styles.containerElipsis}>
@@ -68,7 +75,7 @@ const Posts: React.FC<props> = ({
         <h4>73 Likes</h4>
         <div>
           <span>
-            <strong>Franco Chaparro</strong> {title}
+            <strong>{author.name}</strong> {title}
           </span>
         </div>
       </div>

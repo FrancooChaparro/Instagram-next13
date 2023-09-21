@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 export async function GET(
 ) {
-    
     const posts = await prisma.post.findMany({
      include: {
        author: true

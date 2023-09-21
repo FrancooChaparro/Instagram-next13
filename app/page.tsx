@@ -27,7 +27,6 @@ export default  function Home() {
     // Llama a getPosts y actualiza el estado cuando se obtengan los datos
     getPosts()
       .then((data) => {
-        console.log(data);
         setPosts(data);
       })
       .catch((error) => {
@@ -41,7 +40,7 @@ export default  function Home() {
       <div className={styles.hola}>
         <Historys />
         {posts.map((e : Post) => {
-          return <Posts key={e.id} title={e.title} image={e.image} liked={false} authorId={e.authorId} />
+          return <Posts key={e.id} title={e.title} image={e.image} liked={false} authorId={e.authorId} author={e.author} />
         })}
         <div className={styles.menu}><Menu /></div>
       </div>

@@ -19,8 +19,6 @@ model Post {
   author    User? @relation(fields: [authorId], references: [id])
   authorId  Int?
 
-  @@map("posts")
-
 }
 
 
@@ -32,13 +30,12 @@ model User {
   password  String    @default("")
   image     String    @default("/images/photo.webp")
   posts     Post[]
-  following User[]    @relation("UserFollows")
-  followers User[]    @relation("UserFollows")
+  
 
-  @@map("users")
 }
 
-
+// following User[]    @relation("UserFollows")
+//   followers User[]    @relation("UserFollows")
 
 
 model Coment {
@@ -46,6 +43,5 @@ model Coment {
   content String
   authorId  Int?
 
-  @@map("comments")
 
 }
