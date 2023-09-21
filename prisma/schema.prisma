@@ -15,25 +15,37 @@ model Post {
   id        Int     @id @default(autoincrement())
   title     String
   image     String
-  liked Boolean @default(false)
+  liked     Boolean @default(false)
   author    User? @relation(fields: [authorId], references: [id])
   authorId  Int?
+
+  @@map("posts")
+
 }
 
+
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String
-  username String  @default("")
-  pasword String  @default("")
-  followers String?
-  Following String?
-  image String?
-  posts Post[]
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  name      String
+  username  String    @default("")
+  password  String    @default("")
+  image     String    @default("/images/photo.webp")
+  posts     Post[]
+  following User[]    @relation("UserFollows")
+  followers User[]    @relation("UserFollows")
+
+  @@map("users")
 }
+
+
+
 
 model Coment {
   id        Int     @id @default(autoincrement())
   content String
   authorId  Int?
+
+  @@map("comments")
+
 }

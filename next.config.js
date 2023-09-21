@@ -6,6 +6,13 @@ dotenv.config();
 const nextConfig = {
     env : { 
         DATABASE_URL: "postgres://postgres:Eldopeeldope_1@localhost:5432/red"
+      },
+      images: { 
+        remotePatterns: [
+          {
+            hostname: "i.blogs.es"
+          }
+        ]
       }
 }
 

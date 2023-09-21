@@ -41,7 +41,7 @@ export default  function Home() {
       <div className={styles.hola}>
         <Historys />
         {posts.map((e : Post) => {
-          return <Posts key={e.id} title='hola' image={e.image} liked={false} authorId={e.authorId} />
+          return <Posts key={e.id} title={e.title} image={e.image} liked={false} authorId={e.authorId} />
         })}
         <div className={styles.menu}><Menu /></div>
       </div>

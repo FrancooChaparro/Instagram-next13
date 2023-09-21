@@ -4,6 +4,7 @@ import { AiOutlineEllipsis } from "react-icons/ai";
 import { FiSend, FiHeart } from "react-icons/fi";
 import { FaRegComment } from "react-icons/fa";
 import { BsSave } from "react-icons/bs";
+import { FcLike } from "react-icons/fc";
 import model from "@/app/api/model.json";
 import Image from "next/image";
 
@@ -17,6 +18,7 @@ interface props {
 const Posts: React.FC<props> = ({ 
   title, image, liked, authorId
 }) => {
+
   return (
     <div className={styles.containerAll}>
       <div className={styles.containerHeader}>
@@ -40,7 +42,6 @@ const Posts: React.FC<props> = ({
 
       <div className={styles.containerPhoto}>
         <Image
-          // src="/images/adad.webp"
           src={image}
           width={496}
           height={480}
@@ -50,8 +51,8 @@ const Posts: React.FC<props> = ({
       </div>
 
       <div className={styles.containerBtn}>
-        <div className={styles.containerIcons}>
-          <FiHeart />
+        <div className={styles.containerIcons} >
+        {liked ? <FcLike /> : <FiHeart />}
         </div>
         <div className={styles.containerIcons}>
           <FaRegComment />
@@ -67,8 +68,7 @@ const Posts: React.FC<props> = ({
         <h4>73 Likes</h4>
         <div>
           <span>
-            <strong>Franco Chaparro</strong> Lorem ip elit. Illo laborum, unde
-            necessitatibus dolorem
+            <strong>Franco Chaparro</strong> {title}
           </span>
         </div>
       </div>
