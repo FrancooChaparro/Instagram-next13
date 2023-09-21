@@ -6,7 +6,7 @@ import Image from "next/image";
 import { User } from "@/app/types";
 
 async function getUsers() {
-  const res = await fetch("/api/get_all:_users", {
+  const res = await fetch("/api/get_all_users", {
     method: "GET"
   });
 
@@ -61,7 +61,9 @@ const Menu = () => {
       </div>
       <div className={styles.containerSuggestions}>
         {users.map((e: User)=> {
-          return <Suggestions key={e.id} username={e.username}
+          return <Suggestions 
+          key={e.id} 
+          username={e.username}
           name={e.name}
           imagen={e.image}
           />

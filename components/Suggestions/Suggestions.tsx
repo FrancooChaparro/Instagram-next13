@@ -16,7 +16,7 @@ export const Suggestions: React.FC<props>  = ({
     <div className={styles.containerUser}>
     <div className={styles.containerUserImage}>
       <Image 
-      src={`/${imagen}`}
+      src={imagen}
       alt={name}
       width={35.2}
       height={35.2}
