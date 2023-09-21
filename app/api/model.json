@@ -5,24 +5,6 @@
         "username": "ROMA ",
         "name": "Coca-cola Argentina",
         "imagen": "images/profile.jpg"
-      },
-      {
-        "id": 2,
-        "username": "Pepsi",
-        "name": "Pepsi Argentina",
-        "imagen": "images/profile.jpg"
-      },
-      {
-        "id": 3,
-        "username": "Boca",
-        "name": "Boca Juniors",
-        "imagen": "images/profile.jpg"
-      },
-      {
-        "id": 3,
-        "username": "Boca",
-        "name": "Boca Juniors",
-        "imagen": "images/profile.jpg"
       }
     ],
     "posts": [

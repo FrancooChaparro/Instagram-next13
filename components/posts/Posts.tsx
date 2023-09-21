@@ -7,7 +7,16 @@ import { BsSave } from "react-icons/bs";
 import model from "@/app/api/model.json";
 import Image from "next/image";
 
-const Posts = () => {
+interface props {
+  title: string,
+  image: string,
+  liked: boolean,
+  authorId: number
+
+}
+const Posts: React.FC<props> = ({ 
+  title, image, liked, authorId
+}) => {
   return (
     <div className={styles.containerAll}>
       <div className={styles.containerHeader}>
@@ -31,7 +40,8 @@ const Posts = () => {
 
       <div className={styles.containerPhoto}>
         <Image
-          src="/images/adad.webp"
+          // src="/images/adad.webp"
+          src={image}
           width={496}
           height={480}
           alt="Picture of the author"

@@ -12,3 +12,12 @@ export interface tester {
     name: string
     email: string
 }
+
+
+export interface Post { 
+    id: number,
+    title: string,
+    image: string,
+    liked: boolean,
+    authorId: number
+}

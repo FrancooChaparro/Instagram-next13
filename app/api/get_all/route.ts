@@ -5,7 +5,8 @@ export async function GET(
 ) {
     
     const posts = await prisma.post.findMany();
-
+    console.log("route", posts);
+    
     
   return NextResponse.json(posts);
 }
