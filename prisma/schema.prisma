@@ -14,16 +14,26 @@ datasource db {
 model Post {
   id        Int     @id @default(autoincrement())
   title     String
-  content   String?
-  published Boolean @default(false)
-  author    User?   @relation(fields: [authorId], references: [id])
+  image     String
+  liked Boolean @default(false)
+  author    User? @relation(fields: [authorId], references: [id])
   authorId  Int?
 }
 
 model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
-  name  String?
-  pasword String
+  name  String
+  username String  @default("")
+  pasword String  @default("")
+  followers String?
+  Following String?
+  image String?
   posts Post[]
+}
+
+model Coment {
+  id        Int     @id @default(autoincrement())
+  content String
+  authorId  Int?
 }

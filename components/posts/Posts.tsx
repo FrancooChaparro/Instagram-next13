@@ -12,7 +12,6 @@ const Posts = () => {
     <div className={styles.containerAll}>
       <div className={styles.containerHeader}>
         <div className={styles.containerImage}>
-          {/* <img src="/images/Googleplay.png" alt="Googleplay" /> */}
           <Image
           src="/images/adad.webp"
           width={44.8}
@@ -31,7 +30,6 @@ const Posts = () => {
       </div>
 
       <div className={styles.containerPhoto}>
-        {/* <img src="https://e0.pxfuel.com/wallpapers/13/584/desktop-wallpaper-paisaje-paisajes-thumbnail.jpg" alt="Image" /> */}
         <Image
           src="/images/adad.webp"
           width={496}
