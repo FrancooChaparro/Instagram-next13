@@ -16,7 +16,7 @@ model Post {
   title     String
   image     String
   liked     Boolean @default(false)
-  author    User? @relation(fields: [authorId], references: [id])
+  author    User? @relation(fields: [authorId], references: [id], onDelete: Cascade)
   authorId  Int?
 
 }
