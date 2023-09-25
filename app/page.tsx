@@ -40,7 +40,7 @@ export default  function Home() {
       <div className={styles.hola}>
         <Historys />
         {posts.length ? posts.map((e : Post) => {
-          return <Posts key={e.id} title={e.title} image={e.image} liked={false} authorId={e.authorId} author={e.author} />
+          return <Posts key={e.id} title={e.title} image={e.image} liked={e.liked} authorId={e.authorId} author={e.author} />
         }) : 
         <h5 style={{paddingLeft: "15rem"}}>Cargando...</h5> }
         <div className={styles.menu}><Menu /></div>
