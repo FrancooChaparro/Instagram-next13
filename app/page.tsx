@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import { Post } from './types'
 
 async function getPosts() {
-  const res = await fetch("/api/get_all", {
+  const res = await fetch("/api/get_all_posts", {
     method: "GET"
   });
 
