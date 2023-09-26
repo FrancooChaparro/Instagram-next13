@@ -20,6 +20,7 @@ async function getUsers() {
 
 const Menu = () => {
   const [users, setUsers] = useState([]); // Usa useState para manejar el estado
+  const [index, setIndex] = useState(3)
 
   useEffect(() => {
     // Llama a getPosts y actualiza el estado cuando se obtengan los datos
@@ -57,7 +58,7 @@ const Menu = () => {
       </div>
       <div className={styles.containerSuggestionsHeader}>
         <span className={styles.spanA}>Suggestions For You</span>
-        <span className={styles.spanB}>See All</span>
+        <span className={styles.spanB} onClick={()=> setIndex(users.length)}>See All</span>
       </div>
       <div className={styles.containerSuggestions}>
         {users.map((e: User)=> {
@@ -67,7 +68,7 @@ const Menu = () => {
           name={e.name}
           imagen={e.image}
           />
-        })}
+        }).splice(0,index)}
       </div>
       <MenuFooter />
     </div>

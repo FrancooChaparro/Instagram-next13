@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Posts.module.css";
 import { AiOutlineEllipsis } from "react-icons/ai";
 import { FiSend, FiHeart } from "react-icons/fi";
@@ -26,6 +26,13 @@ const Posts: React.FC<props> = ({
   title, image, liked, author
 }) => {
 
+  const [like, setLike] = useState(false)
+  const [number, setNumber] = useState(72)
+  const opLi = () => {
+    setLike(!like)
+    if (like) return setNumber(72)
+    setNumber(73)
+  }
   return (
     <div className={styles.containerAll}>
       <div className={styles.containerHeader}>
@@ -58,8 +65,8 @@ const Posts: React.FC<props> = ({
       </div>
 
       <div className={styles.containerBtn}>
-        <div className={styles.containerIcons} >
-        {liked ? <FcLike /> : <FiHeart />}
+        <div className={styles.containerIcons} onClick={()=> opLi()}>
+        {like ? <FcLike /> : <FiHeart />}
         </div>
         <div className={styles.containerIcons}>
           <FaRegComment />
@@ -72,7 +79,7 @@ const Posts: React.FC<props> = ({
         </div>
       </div>
       <div className={styles.containerUser}>
-        <h4>73 Likes</h4>
+        <h4>{number} Likes</h4>
         <div>
           <span>
             <strong>{author.name}</strong> {title}

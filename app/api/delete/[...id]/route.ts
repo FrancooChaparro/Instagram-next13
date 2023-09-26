@@ -1,11 +1,12 @@
 import prisma from "@/app/lib/prismadb";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { parse } from "url";
 
-export async function DELETE(request: Request) {
+export async function DELETE(request: NextRequest) {
   const { pathname } = parse(request.url || "", true);
   const [, id] = (pathname || "").split("api/delete/"); // Supongamos que la URL es "/posts/1", donde 1 es el ID del post
-
+  console.log(NextRequest, "ADASD");
+  
 
   if (!id) {
     return new NextResponse(
