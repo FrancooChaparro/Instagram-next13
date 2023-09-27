@@ -5,8 +5,8 @@ import { FiSend, FiHeart } from "react-icons/fi";
 import { FaRegComment } from "react-icons/fa";
 import { BsSave } from "react-icons/bs";
 import { FcLike } from "react-icons/fc";
-import model from "@/app/api/model.json";
 import Image from "next/image";
+import { Coment } from "@/app/types";
 
 interface props {
   title: string,
@@ -20,12 +20,14 @@ interface props {
     username: string
     password: string
     image: string
-}
+},
+comments: []
 }
 const Posts: React.FC<props> = ({ 
-  title, image, liked, author
+  title, image, liked, author, comments
 }) => {
-
+  console.log(comments);
+  
   const [like, setLike] = useState(false)
   const [number, setNumber] = useState(72)
   const opLi = () => {
@@ -87,11 +89,11 @@ const Posts: React.FC<props> = ({
         </div>
       </div>
       <div className={styles.containerComments}>
-        {model.comments.map((e) => {
+        {comments.map((e: Coment) => {
           return (
             <div key={e.id} className={styles.coment}>
               <span>
-                <strong style={{ marginRight: "4px" }}>{e.username}</strong>
+                <strong style={{ marginRight: "4px" }}>{e.author.username}</strong>
                 {e.content}
               </span>
             </div>

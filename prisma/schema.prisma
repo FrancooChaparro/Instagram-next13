@@ -47,4 +47,4 @@ model Coment {
 
 
 // following User[]    @relation("UserFollows")
-//   followers User[]    @relation("UserFollows")
+// followers User[]    @relation("UserFollows")

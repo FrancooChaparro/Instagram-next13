@@ -13,6 +13,21 @@ export interface tester {
     email: string
 }
 
+export interface Coment { 
+        id: number,
+        content: string,
+        authorIdComent: number,
+        comentPostId: number,
+        author: {
+            id: number,
+            email: string,
+            name: string,
+            username: string,
+            password: string,
+            image:string
+        }
+    
+}
 
 export interface Post { 
     id: number,
@@ -28,6 +43,7 @@ export interface Post {
         password: string
         image: string
     }
+    comments: Coment[]
 }
 
 export interface User { 
@@ -45,5 +61,13 @@ export interface User {
                 liked: false,
                 authorId: number
             },
+        ],
+        coments?: [
+        {
+            id: number,
+            content: string,
+            authorIdComent: number,
+            comentPostId: number
+        }
         ]
 }
