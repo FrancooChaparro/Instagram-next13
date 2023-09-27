@@ -4,8 +4,8 @@ import Image from 'next/image'
 
 
 export const Historys = () => {
-  
   return (
+
     <div className={styles.containerAll}>
          <div className={styles.containerHistory}>
         <div className={styles.history}>

@@ -50,3 +50,51 @@
 }
 
 
+/* styles.module.css */
+.story-container {
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  height: 100px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  display: flex;
+}
+
+.stories {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.story {
+  width: 150px;
+  height: 100px;
+  background-color: #eee;
+  margin-right: 10px;
+}
+
+.story.active {
+  border: 2px solid #3498db;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}

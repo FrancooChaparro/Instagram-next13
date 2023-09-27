@@ -18,6 +18,7 @@ export async function GET(request: NextRequest) {
         },
         include: {
           posts: true,
+          coments: true
         },
       });
 
@@ -30,6 +31,7 @@ export async function GET(request: NextRequest) {
       const allUsers = await prisma.user.findMany({
         include: {
           posts: true,
+          coments: true
         },
       });
 

@@ -12,14 +12,15 @@ datasource db {
 
 
 model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  image     String
-  liked     Boolean @default(false)
-  author    User? @relation(fields: [authorId], references: [id], onDelete: Cascade)
-  authorId  Int?
-
+  id      Int      @id @default(autoincrement())
+  title   String
+  image   String
+  liked   Boolean  @default(false)
+  author  User?    @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId Int?
+  comments Coment[]
 }
+
 
 
 model User {
@@ -30,18 +31,20 @@ model User {
   password  String    @default("")
   image     String    @default("/images/photo.webp")
   posts     Post[]
-  
-
+  coments   Coment[]
 }
+
+model Coment {
+  id             Int      @id @default(autoincrement())
+  content        String
+  author         User?    @relation(fields: [authorIdComent], references: [id], onDelete: Cascade)
+  authorIdComent Int?
+  post           Post?    @relation(fields: [comentPostId], references: [id])
+  comentPostId   Int?
+}
+
+
+
 
 // following User[]    @relation("UserFollows")
 //   followers User[]    @relation("UserFollows")
-
-
-model Coment {
-  id        Int     @id @default(autoincrement())
-  content String
-  authorId  Int?
-
-
-}
