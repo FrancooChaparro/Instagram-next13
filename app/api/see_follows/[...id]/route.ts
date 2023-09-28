@@ -16,13 +16,13 @@ export async function GET(request: Request) {
     );
   }
 
-  const post = await prisma.user.findUnique({
+  const userID = await prisma.user.findUnique({
     where: {
       id: parseInt(id, 10),
     },
   });
 
-  if (!post) {
+  if (!userID) {
     return new NextResponse(
       JSON.stringify({ message: "user not found" }),
       {
@@ -32,7 +32,7 @@ export async function GET(request: Request) {
     );
   }
   let seguidos: any[] = [];  // Inicializa la variable con un array vacío
-  let arrayseguidos = post.following;
+  let arrayseguidos = userID.following;
 
   for (const e of arrayseguidos) {
     let user = await prisma.user.findUnique({
@@ -44,7 +44,7 @@ export async function GET(request: Request) {
   }
 
   let seguidores: any[] = [];  // Inicializa la variable con un array vacío
-  let arrayFollows = post.followers;
+  let arrayFollows = userID.followers;
 
   for (const e of arrayFollows) {
     let user = await prisma.user.findUnique({
@@ -56,7 +56,7 @@ export async function GET(request: Request) {
   }
 
   return new NextResponse(
-    JSON.stringify({ post, seguidores, seguidos }),
+    JSON.stringify({ userID, seguidores, seguidos }),
     {
       status: 200,
       headers: { "Content-Type": "application/json" },

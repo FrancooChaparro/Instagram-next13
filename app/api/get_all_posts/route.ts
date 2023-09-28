@@ -10,6 +10,11 @@ export async function GET() {
           author: true, // Incluir la información del autor del comentario
         },
       },
+      likes: {
+        include: {
+          author: true,
+        }
+      }
     },
   });
 

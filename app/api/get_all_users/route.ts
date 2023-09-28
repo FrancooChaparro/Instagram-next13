@@ -10,6 +10,11 @@ async function getUserFollowData(userId: number) {
     include: {
       posts: true,
       coments: true,
+      like: {
+        include: {
+          post: true
+        }
+      }
     },
   });
 
@@ -62,6 +67,7 @@ export async function GET(request: NextRequest) {
         include: {
           posts: true,
           coments: true,
+          like: true
       
         },
       });
@@ -79,7 +85,7 @@ export async function GET(request: NextRequest) {
         include: {
           posts: true,
           coments: true,
-      
+          like: true
         },
       });
 
