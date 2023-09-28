@@ -21,7 +21,8 @@ async function post_login(props: LoginForm, router: any) {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+      console.log(data.msg);
+      localStorage.setItem('userData', JSON.stringify(data.msg));
       router.push("/");
     });
 }

@@ -43,7 +43,7 @@ async function getUserFollowData(userId: number) {
     }
   }
   return {
-    user,
+    ...user,
     seguidos,
     seguidores,
   };

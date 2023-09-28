@@ -15,7 +15,7 @@ export interface Postt {
         authorId: number
 }
 export interface Author {
-    id: number,
+    id: string,
     email: string,
     name: string,
     username: string,

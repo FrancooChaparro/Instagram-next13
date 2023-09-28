@@ -12,6 +12,7 @@
     color: var(--primary-black);
     margin-bottom: 24px;
     font-family: 'Lobster', cursive;;
+    cursor: pointer;
 }
 .title img { 
    width: 100%;

@@ -5,7 +5,7 @@ import { Historys } from '@/components/Historys/Historys'
 import Posts from '@/components/posts/Posts'
 import Menu from '@/components/menu/Menu'
 import { useEffect, useState } from 'react'
-import { Post } from './types'
+import { Post, Postt } from './types'
 
 async function getPosts() {
   const res = await fetch("/api/get_all_posts", {
@@ -23,6 +23,7 @@ async function getPosts() {
 export default  function Home() {
   const [posts, setPosts] = useState([]); // Usa useState para manejar el estado
 
+  
   useEffect(() => {
     // Llama a getPosts y actualiza el estado cuando se obtengan los datos
     getPosts()
@@ -33,7 +34,8 @@ export default  function Home() {
         console.error(error);
       });
   }, []);
-  
+
+
   return (
     <div className={styles.main}>
       <Nav />
