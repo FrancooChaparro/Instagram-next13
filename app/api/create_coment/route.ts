@@ -1,12 +1,38 @@
 import prisma from "@/app/lib/prismadb";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
+  const body = await request.json();
+  const { content, authorIdComent, postId } = body;
+
   try {
-    const body = await request.json();
-    const { content, authorIdComent, postId } = body;
+    if (isNaN(parseInt(authorIdComent, 10)) || isNaN(parseInt(postId, 10))) {
+      return NextResponse.json(
+        { status: false, msg: "Invalid user ID provided" },
+        { status: 400 }
+      );
+    }
 
-    const post = await prisma.coment.create({
+    const userID = await prisma.user.findUnique({
+      where: {
+        id: parseInt(authorIdComent, 10),
+      },
+    });
+
+    const postExist = await prisma.user.findUnique({
+      where: {
+        id: parseInt(postId),
+      },
+    });
+
+    if (!userID || !postExist) {
+      return NextResponse.json(
+        { status: false, msg: "Post or User does exist" },
+        { status: 404 }
+      );
+    }
+
+    const newComent = await prisma.coment.create({
       data: {
         content,
         author: { connect: { id: authorIdComent } },
@@ -14,9 +40,8 @@ export async function POST(request: Request) {
       },
     });
 
-    return NextResponse.json(post);
+    return NextResponse.json(newComent);
   } catch (error) {
-    console.error("Error:", error);
-    return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
+    return NextResponse.json({ msg: `Error 404 - ${error}` });
   }
 }

@@ -5,21 +5,38 @@ export async function PUT(request: Request) {
   const body = await request.json();
   const { postID, title, liked } = body;
 
-  if (!postID) {
-    return new NextResponse("Se requiere el ID del post para la actualización", {
-      status: 400,
+  try {
+    if (isNaN(parseInt(postID, 10))) {
+      return NextResponse.json(
+        { status: false, msg: "Invalid user ID provided" },
+        { status: 400 }
+      );
+    }
+    const postExist = await prisma.post.findUnique({
+      where: {
+        id: parseInt(postID),
+      },
     });
+
+    if (!postExist) {
+      return NextResponse.json(
+        { status: false, msg: "Post does exist" },
+        { status: 404 }
+      );
+    }
+
+    const post = await prisma.post.update({
+      where: {
+        id: postID,
+      },
+      data: {
+        title,
+        liked,
+      },
+    });
+
+    return NextResponse.json({ status: true, user: postID }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ msg: `Error 404 - ${error}` });
   }
-
-  const post = await prisma.post.update({
-    where: {
-      id: postID, // Proporciona el ID del usuario que deseas actualizar
-    },
-    data: {
-      title,
-      liked
-    },
-  });
-
-  return NextResponse.json(post);
 }

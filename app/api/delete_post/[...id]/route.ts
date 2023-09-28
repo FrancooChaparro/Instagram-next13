@@ -4,46 +4,36 @@ import { parse } from "url";
 
 export async function DELETE(request: Request) {
   const { pathname } = parse(request.url || "", true);
-  const [, id] = (pathname || "").split("api/delete_post/"); // Supongamos que la URL es "/posts/1", donde 1 es el ID del post
+  const [, id] = (pathname || "").split("api/delete_post/");
 
+  try {
+    if (isNaN(parseInt(id, 10))) {
+      return NextResponse.json(
+        { status: false, msg: "Invalid post ID provided" },
+        { status: 400 }
+      );
+    }
+    const postID = await prisma.post.findUnique({
+      where: {
+        id: parseInt(id, 10),
+      },
+    });
 
-  if (!id) {
-    return new NextResponse(
-        JSON.stringify({ message: "Post not found" }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json" },
-        }
+    if (!postID) {
+      return NextResponse.json(
+        { status: false, msg: "Post does exist" },
+        { status: 404 }
       );
     }
 
-  const post = await prisma.post.findUnique({
-    where: {
-      id: parseInt(id, 10),
-    },
-  });
+    await prisma.post.delete({
+      where: {
+        id: parseInt(id, 10),
+      },
+    });
 
-  if (!post) {
-    return  new NextResponse(
-        JSON.stringify({ message: "post not found" }),
-        {
-          status: 404,
-          headers: { "Content-Type": "application/json" },
-        }
-      );
+    return NextResponse.json({ status: true, user: postID }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ msg: `Error 404 - ${error}` });
   }
-
-  await prisma.post.delete({
-    where: {
-      id: parseInt(id, 10),
-    },
-  });
-
-  return new NextResponse(
-    JSON.stringify({ message: "El post ha sido eliminado con éxito" }),
-    {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    }
-  );
 }
