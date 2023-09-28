@@ -58,3 +58,13 @@ export interface User {
         }
         ]
 }
+
+
+export interface UserData {
+    image: string;
+    posts: Postt[];
+    followers: number[];
+    following: number[];
+    name: string;
+    username: string;
+  }

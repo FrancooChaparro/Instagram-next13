@@ -3,17 +3,10 @@ import React, { useEffect, useState } from "react";
 import styles from "./Profile.module.css";
 import Nav from "@/components/nav/Nav";
 import Image from "next/image";
-import { Postt } from "@/app/types";
+import { UserData } from "@/app/types";
 
 const Profile = () => {
-  interface UserData {
-    image: string;
-    posts: Postt[];
-    followers: number[];
-    following: number[];
-    name: string;
-    username: string;
-  }
+
 
   const userPrueba: UserData = {
     image: "/images/profile.jpg",
@@ -61,7 +54,6 @@ const Profile = () => {
     fetchData();
   }, []);
 
-  console.log(userData);
 
   return (
     <div className={styles.main}>
@@ -70,7 +62,7 @@ const Profile = () => {
         <div className={styles.containerHeader}>
           <div className={styles.containerProfileImg}>
             <Image
-              src={userData?.image as string}
+              src={userData ? userData?.image : "/images/photo.webp"}
               alt={"name"}
               width={150}
               height={150}
