@@ -13,5 +13,7 @@ export async function GET() {
     },
   });
 
-  return NextResponse.json(posts);
+  const reversedPosts = posts.reverse();
+
+  return NextResponse.json(reversedPosts);
 }

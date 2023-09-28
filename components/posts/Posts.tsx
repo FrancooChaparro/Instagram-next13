@@ -21,7 +21,7 @@ interface props {
     password: string
     image: string
 },
-comments: []
+comments: Coment[]
 }
 const Posts: React.FC<props> = ({ 
   title, image, liked, author, comments

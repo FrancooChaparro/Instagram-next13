@@ -32,7 +32,10 @@ model User {
   image     String    @default("/images/photo.webp")
   posts     Post[]
   coments   Coment[]
+  followers Follower[]
+  following Following[]
 }
+
 
 model Coment {
   id             Int      @id @default(autoincrement())
@@ -43,6 +46,17 @@ model Coment {
   comentPostId   Int?
 }
 
+model Follower {
+  id         Int @id @default(autoincrement())
+  user       User @relation(fields: [userId], references: [id])  // Cambiado de followerId a userId
+  userId     Int
+}
+
+model Following {
+  id         Int @id @default(autoincrement())
+  user       User @relation(fields: [userId], references: [id])  // Cambiado de followingId a userId
+  userId     Int
+}
 
 
 
