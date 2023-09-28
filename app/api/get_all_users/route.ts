@@ -56,8 +56,6 @@ export async function GET(request: NextRequest) {
       const name = queryParameters.get("name"); // Obtiene el valor del parámetro "name"
 
       if (name) {
-        console.log(`El valor de 'name' es: ${name}`);
-
         const users = await prisma.user.findMany({
           where: {
             username: {
