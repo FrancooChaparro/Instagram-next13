@@ -1,9 +1,52 @@
 import prisma from "@/app/lib/prismadb";
 import { NextResponse, NextRequest } from "next/server";
 
+async function getUserFollowData(userId: number) {
+
+  const user = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+    include: {
+      posts: true,
+      coments: true,
+    },
+  });
+
+  let seguidos: any[] = [];  // Inicializa la variable con un array vacío
+  let arrayseguidos = user?.following;
+if (arrayseguidos) {
+  for (const e of arrayseguidos) {
+    let user = await prisma.user.findUnique({
+      where: {
+        id: e,
+      },
+    });
+    seguidos.push(user);
+  }
+}
+
+  let seguidores: any[] = [];  // Inicializa la variable con un array vacío
+  let arrayFollows = user?.followers;
+  if (arrayFollows) { 
+    for (const e of arrayFollows) {
+      let user = await prisma.user.findUnique({
+        where: {
+          id: e,
+        },
+      });
+      seguidores.push(user);
+    }
+  }
+return { 
+  user, 
+  seguidos,
+  seguidores
+}
+}
+
 export async function GET(request: NextRequest) {
   const queryParameters = request.nextUrl?.searchParams; // Obtiene los parámetros de consulta
-
   if (queryParameters) {
     const name = queryParameters.get("name"); // Obtiene el valor del parámetro "name"
 
@@ -13,51 +56,41 @@ export async function GET(request: NextRequest) {
       const users = await prisma.user.findMany({
         where: {
           username: {
-            startsWith: name, // Utiliza el operador "startsWith" para buscar nombres que comiencen con "fra"
+            startsWith: name,
           },
         },
         include: {
           posts: true,
           coments: true,
-          // followers: {
-          //   include: {
-          //     user: true, // Incluir la información del autor del comentario
-          //   },
-          // },
-          // following: {
-          //   include: {
-          //     user: true, // Incluir la información del autor del comentario
-          //   },
-          // },
+      
         },
       });
 
       if (users.length === 0) {
         return NextResponse.json({ message: "El usuario no existe en la base de datos" }, { status: 404 });
       } else {
-        return NextResponse.json(users);
+        // Obtener datos adicionales de cada usuario
+        const usersData = await Promise.all(users.map(user => getUserFollowData(user.id)));
+
+        return NextResponse.json(usersData);
       }
     } else {
       const allUsers = await prisma.user.findMany({
         include: {
           posts: true,
           coments: true,
-          // followers: {
-          //   include: {
-          //     user: true, // Incluir la información del autor del comentario
-          //   },
-          // },
-          // following:{
-          //   include: {
-          //     user: true, // Incluir la información del autor del comentario
-          //   },
-          // },
+      
         },
       });
 
-      return NextResponse.json(allUsers);
+      // Obtener datos adicionales de cada usuario
+      const usersData = await Promise.all(allUsers.map(user => getUserFollowData(user.id)));
+
+      return NextResponse.json(usersData);
     }
   }
+
+  return NextResponse.json({ message: "Parámetros de consulta no proporcionados" }, { status: 400 });
 }
 
 
