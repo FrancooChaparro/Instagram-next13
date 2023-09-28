@@ -19,8 +19,16 @@ export async function GET(request: NextRequest) {
         include: {
           posts: true,
           coments: true,
-          followers: true,
-          following: true
+          // followers: {
+          //   include: {
+          //     user: true, // Incluir la información del autor del comentario
+          //   },
+          // },
+          // following: {
+          //   include: {
+          //     user: true, // Incluir la información del autor del comentario
+          //   },
+          // },
         },
       });
 
@@ -34,8 +42,16 @@ export async function GET(request: NextRequest) {
         include: {
           posts: true,
           coments: true,
-          followers: true,
-          following: true
+          // followers: {
+          //   include: {
+          //     user: true, // Incluir la información del autor del comentario
+          //   },
+          // },
+          // following:{
+          //   include: {
+          //     user: true, // Incluir la información del autor del comentario
+          //   },
+          // },
         },
       });
 

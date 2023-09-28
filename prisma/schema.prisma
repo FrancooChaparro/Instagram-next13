@@ -32,8 +32,8 @@ model User {
   image     String    @default("/images/photo.webp")
   posts     Post[]
   coments   Coment[]
-  followers Follower[]
-  following Following[]
+  followers Int[]
+  following Int[]
 }
 
 
@@ -42,23 +42,28 @@ model Coment {
   content        String
   author         User?    @relation(fields: [authorIdComent], references: [id], onDelete: Cascade)
   authorIdComent Int?
-  post           Post?    @relation(fields: [comentPostId], references: [id])
+  post           Post?    @relation(fields: [comentPostId], references: [id], onDelete: Cascade)
   comentPostId   Int?
 }
 
+// model Follower {
+//   id         Int @id @default(autoincrement())
+//   user       User @relation(fields: [userId], references: [id], onDelete: Cascade)  // Cambiado de followerId a userId
+//   userId     Int
+// }
+
+// model Following {
+//   id         Int @id @default(autoincrement())
+//   user       User @relation(fields: [userId], references: [id], onDelete: Cascade)  // Cambiado de followingId a userId
+//   userId     Int
+// }
+
 model Follower {
-  id         Int @id @default(autoincrement())
-  user       User @relation(fields: [userId], references: [id])  // Cambiado de followerId a userId
-  userId     Int
+ id         Int @id @default(autoincrement())
+ followUserId Int
 }
 
 model Following {
-  id         Int @id @default(autoincrement())
-  user       User @relation(fields: [userId], references: [id])  // Cambiado de followingId a userId
-  userId     Int
+ id         Int @id @default(autoincrement())
+ followingUserId Int
 }
-
-
-
-// following User[]    @relation("UserFollows")
-// followers User[]    @relation("UserFollows")
