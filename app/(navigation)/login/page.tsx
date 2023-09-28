@@ -5,6 +5,27 @@ import { Input } from '@/components/Input/Input';
 import { LoginForm } from '@/app/types';
 import { useRouter } from 'next/navigation';
 
+async function post_login(props: LoginForm, router: any) {
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(props),
+  };
+  const res = await fetch("/api/login", requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("La solicitud no fue exitosa");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      router.push("/");
+    });
+}
+
 const Login = () => {
   const router = useRouter()
   const [inputValues, setInputValues] = useState<LoginForm>({
@@ -35,12 +56,12 @@ const Login = () => {
               />
             <Input
                 Onchange={handleChange}
-                value={inputValues.email}
-                name={"email"}
-                type={"text"}
-                placeholder={"Nombre completo"}
+                value={inputValues.password}
+                name={"password"}
+                type={"password"}
+                placeholder={"Contraseña"}
               />
-               <button className={styles.btnRegister}>Login</button>
+               <button onClick={() => post_login(inputValues, router)} className={styles.btnRegister}>Login</button>
             </div>
           <hr />
           <div className={styles.changePassword}>

@@ -6,7 +6,7 @@ export interface RegisterForm {
 }
 
 export interface User extends Omit<RegisterForm, 'password'> {}  // EMAIL Y USERNAME
-export interface LoginForm extends Omit<RegisterForm, 'username'> {} //  EMAIL Y PASSWORD
+export interface LoginForm extends Omit<Omit<RegisterForm, 'username'>, 'name'> {} 
 export interface Postt {
         id: number,
         title: string,

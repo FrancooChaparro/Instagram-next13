@@ -1,11 +1,11 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./Register.module.css";
 import { Input } from "@/components/Input/Input";
 import { RegisterForm } from "@/app/types";
 import { useRouter } from "next/navigation";
 
-async function registro(props: RegisterForm, router: any) {
+async function post_register(props: RegisterForm, router: any) {
   const requestOptions = {
     method: "POST",
     headers: {
@@ -100,7 +100,7 @@ const Register = () => {
             </span>
           </div>
           <button
-            onClick={() => registro(inputValues, router)}
+            onClick={() => post_register(inputValues, router)}
             className={styles.btnRegister}
           >
             Registrate
