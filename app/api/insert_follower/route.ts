@@ -1,61 +1,97 @@
 import prisma from "@/app/lib/prismadb";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   const body = await request.json();
   const { followerId, followingId } = body;
 
-  // Verificar si el followerId ya está en la lista de following del usuario con ID followingId
-  const userFollowing = await prisma.user.findUnique({
-    where: {
-      id: followingId,
-    },
-    select: {
-      following: true,
-    },
-  });
+  try {
+    if (!followerId || !followingId)
+      return NextResponse.json({ msg: "Missing required fields" });
+    if (isNaN(parseInt(followerId, 10)) || isNaN(parseInt(followingId, 10))) {
+      return NextResponse.json(
+        { status: false, msg: "Invalid user ID provided" },
+        { status: 400 }
+      );
+    }
 
-  if (userFollowing?.following.includes(followerId)) {
-    return NextResponse.json({ error: "El usuario ya sigue a este seguidor" }, { status: 400 });
-  }
-
-  // Verificar si el followingId ya está en la lista de followers del usuario con ID followerId
-  const userFollow = await prisma.user.findUnique({
-    where: {
-      id: followerId,
-    },
-    select: {
-      followers: true,
-    },
-  });
-
-  if (userFollow?.followers.includes(followingId)) {
-    return NextResponse.json({ error: "El seguidor ya sigue a este usuario" }, { status: 400 });
-  }
-
-  // Si las verificaciones pasan, realizar las actualizaciones
-  await prisma.user.update({
-    where: {
-      id: followingId,
-    },
-    data: {
-      following: {
-        push: followerId,
+    const userID1 = await prisma.user.findUnique({
+      where: {
+        id: parseInt(followerId, 10),
       },
-    },
-  });
-
-  await prisma.user.update({
-    where: {
-      id: followerId,
-    },
-    data: {
-      followers: {
-        push: followingId,
+    });
+    const userID2 = await prisma.user.findUnique({
+      where: {
+        id: parseInt(followingId, 10),
       },
-    },
-  });
+    });
+    if (!userID1 || !userID2) {
+      return NextResponse.json(
+        { status: false, msg: "User not found" },
+        { status: 404 }
+      );
+    }
 
-  return NextResponse.json({ message: "Follow relationships created successfully" });
+    const userFollowing = await prisma.user.findUnique({
+      where: {
+        id: followingId,
+      },
+      select: {
+        following: true,
+      },
+    });
+
+    if (userFollowing?.following.includes(followerId)) {
+      return NextResponse.json(
+        { status: false, msg: "El usuario ya sigue a este seguidor" },
+        { status: 400 }
+      );
+    }
+
+    const userFollow = await prisma.user.findUnique({
+      where: {
+        id: followerId,
+      },
+      select: {
+        followers: true,
+      },
+    });
+
+    if (userFollow?.followers.includes(followingId)) {
+      return NextResponse.json(
+        { status: false, msg: "El seguidor ya sigue a este usuario" },
+        { status: 400 }
+      );
+    }
+
+    // Si las verificaciones pasan, realizar las actualizaciones
+    await prisma.user.update({
+      where: {
+        id: followingId,
+      },
+      data: {
+        following: {
+          push: followerId,
+        },
+      },
+    });
+
+    await prisma.user.update({
+      where: {
+        id: followerId,
+      },
+      data: {
+        followers: {
+          push: followingId,
+        },
+      },
+    });
+
+    return NextResponse.json({
+      status: true,
+      msg: "Follow relationships created successfully",
+    });
+  } catch (error) {
+    return NextResponse.json({ msg: `Error 404 - ${error}` });
+  }
 }
-
