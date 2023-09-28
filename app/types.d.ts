@@ -2,6 +2,7 @@ export interface RegisterForm {
     username: string
     email: string
     password: string
+    name: string
 }
 
 export interface User extends Omit<RegisterForm, 'password'> {}  // EMAIL Y USERNAME
@@ -20,11 +21,6 @@ export interface Author {
     username: string,
     password: string,
     image:string
-}
-
-export interface tester { 
-    name: string
-    email: string
 }
 
 export interface Coment { 
