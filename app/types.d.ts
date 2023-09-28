@@ -6,7 +6,21 @@ export interface RegisterForm {
 
 export interface User extends Omit<RegisterForm, 'password'> {}  // EMAIL Y USERNAME
 export interface LoginForm extends Omit<RegisterForm, 'username'> {} //  EMAIL Y PASSWORD
-
+export interface Postt {
+        id: number,
+        title: string,
+        image: string,
+        liked: false,
+        authorId: number
+}
+export interface Author {
+    id: number,
+    email: string,
+    name: string,
+    username: string,
+    password: string,
+    image:string
+}
 
 export interface tester { 
     name: string
@@ -18,15 +32,7 @@ export interface Coment {
         content: string,
         authorIdComent: number,
         comentPostId: number,
-        author: {
-            id: number,
-            email: string,
-            name: string,
-            username: string,
-            password: string,
-            image:string
-        }
-    
+        author: Author  
 }
 
 export interface Post { 
@@ -35,14 +41,7 @@ export interface Post {
     image: string,
     liked: boolean,
     authorId: number
-    author: {
-        id: string
-        email: string
-        name: string
-        username: string
-        password: string
-        image: string
-    }
+    author: Author
     comments: Coment[]
 }
 
@@ -53,15 +52,7 @@ export interface User {
         username:string,
         password: string,
         image: string,
-        posts?: [
-            {
-                id: number,
-                title: string,
-                image: string,
-                liked: false,
-                authorId: number
-            },
-        ],
+        posts?: Postt[]
         coments?: [
         {
             id: number,

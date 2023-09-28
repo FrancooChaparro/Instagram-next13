@@ -26,6 +26,8 @@ const Menu = () => {
     // Llama a getPosts y actualiza el estado cuando se obtengan los datos
     getUsers()
       .then((data) => {
+        console.log(data, "data");
+        
         setUsers(data);
       })
       .catch((error) => {

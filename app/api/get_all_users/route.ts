@@ -43,10 +43,10 @@ async function getUserFollowData(userId: number) {
     }
   }
   return {
-    user,
+    ...user,
     seguidos,
     seguidores,
-  };
+}
 }
 
 export async function GET(request: NextRequest) {

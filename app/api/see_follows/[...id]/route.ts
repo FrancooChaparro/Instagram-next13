@@ -58,7 +58,7 @@ export async function GET(request: NextRequest) {
       seguidores.push(user);
     }
     return NextResponse.json(
-      { status: true, user: userID, seguidores, seguidos },
+      { status: true, user: {...userID, seguidores, seguidos }},
       { status: 200 }
     );
   } catch (error) {
