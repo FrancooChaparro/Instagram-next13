@@ -27,6 +27,27 @@ async function like_post(props : {PostIdLike: number, authorIdLike: number}) {
     });
 }
 
+async function dislike_post(props : {PostIdLike: number, authorIdLike: number}) {
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(props),
+  };
+  const res = await fetch("/api/dislike", requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("La solicitud no fue exitosa");
+      }
+      return response.json();
+    })
+    .then((data) => { 
+      console.log(data);
+      
+    });
+}
+
 async function create_coment(props:{content: string, authorIdComent: number, postId: number}) {
   const requestOptions = {
     method: "POST",
@@ -38,7 +59,9 @@ async function create_coment(props:{content: string, authorIdComent: number, pos
   const res = await fetch("/api/create_coment", requestOptions)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("La solicitud no fue exitosa");
+        // throw new Error("La solicitud no fue exitosa");
+        console.log("DISLIKE");
+        
       }
       return response.json();
     })
@@ -121,7 +144,11 @@ const Posts: React.FC<props> = ({
   };
   const opLi = () => {
     if (userData) {
-      like_post({PostIdLike: id, authorIdLike: userData?.id})
+      if(liked) {
+        dislike_post({PostIdLike: id, authorIdLike: userData?.id})
+      } else { 
+        like_post({PostIdLike: id, authorIdLike: userData?.id})
+      }
     }
     if (liked) {
       setLike(!like)

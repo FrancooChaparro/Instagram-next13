@@ -4,6 +4,8 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
   const body = await request.json();
   const { authorIdLike, PostIdLike } = body;
+  console.log(body);
+  
 
   try {
     if (isNaN(parseInt(authorIdLike, 10)) || isNaN(parseInt(PostIdLike, 10))) {
@@ -13,34 +15,39 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const userID = await prisma.user.findUnique({
+    const like = await prisma.like.findFirst({
       where: {
-        id: parseInt(authorIdLike, 10),
+        authorIdLike: parseInt(authorIdLike, 10),
+        PostIdLike: parseInt(PostIdLike, 10),
       },
     });
 
-    const postExist = await prisma.user.findUnique({
-      where: {
-        id: parseInt(PostIdLike),
-      },
-    });
-
-    if (!userID || !postExist) {
+    if (!like) {
       return NextResponse.json(
-        { status: false, msg: "Post or User does exist" },
+        { status: false, msg: "Like not found" },
         { status: 404 }
       );
     }
 
-    const like = await prisma.like.create({
-      data: {
-        authorIdLike,
-        PostIdLike,
+    // Eliminar el like
+    await prisma.like.delete({
+      where: {
+        id: like.id,
       },
     });
 
-    return NextResponse.json(like);
+    // Actualizar el estado "liked" del post
+    await prisma.post.update({
+      where: {
+        id: parseInt(PostIdLike, 10),
+      },
+      data: {
+        liked: false,
+      },
+    });
+
+    return NextResponse.json({ status: true, msg: "Dislike successful" });
   } catch (error) {
-    return NextResponse.json({ msg: `Error 404 - ${error}` });
+    return NextResponse.json({ status: false, msg: `Error - ${error}` });
   }
 }
