@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Posts.module.css";
 import { AiOutlineEllipsis } from "react-icons/ai";
 import { FiSend, FiHeart } from "react-icons/fi";
@@ -6,7 +6,7 @@ import { FaRegComment } from "react-icons/fa";
 import { BsSave } from "react-icons/bs";
 import { FcLike } from "react-icons/fc";
 import Image from "next/image";
-import { Coment, Like } from "@/app/types";
+import { Coment, Like, UserData } from "@/app/types";
 
 interface comentarios {
   name: string
@@ -32,28 +32,49 @@ likes: Like[]
 const Posts: React.FC<props> = ({ 
   title, image, liked, author, comments, authorId, likes
 }) => {
+  const [userData, setUserData] = useState<UserData | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const storedData = localStorage.getItem("userData");
+        const parsedData = storedData ? JSON.parse(storedData) : null;
+        setUserData(parsedData);
+      } catch (error) {
+        console.error("Error al recuperar datos de localStorage:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+ 
+  
   const [comentarios, setComentarios] = useState<comentarios[]>([]);
   const [like, setLike] = useState(liked)
   const [number, setNumber] = useState(likes.length)
 
   const [inputValues, setInputValues] = useState({
     content: "",
-    name: "Franco"
+    name: "UserTest"
   });
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setInputValues({
-      ...inputValues,
-      [e.target.name]: e.target.value,
+      name: userData?.name || "UserTest",
+      content: e.target.value,
     });
   }
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
+      setInputValues({
+        ...inputValues,
+        name: userData?.name || "UserTest",
+      });
       setComentarios([...comentarios, inputValues])
       setInputValues({
         content: "",
-        name: "Franco"
+        name: userData?.name || "UserTest"
       });
     }
   };
@@ -142,9 +163,9 @@ const Posts: React.FC<props> = ({
             </div>
           );
         })}
-        {comentarios.map((e: comentarios) => {
+        {comentarios.map((e: comentarios, index: number) => {
           return (
-         <div className={styles.coment}>
+         <div className={styles.coment} key={index}>
               <span>
                 <strong style={{ marginRight: "4px" }}>{e.name}</strong>
                 {e.content}

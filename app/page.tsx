@@ -5,7 +5,7 @@ import { Historys } from '@/components/Historys/Historys'
 import Posts from '@/components/posts/Posts'
 import Menu from '@/components/menu/Menu'
 import { useEffect, useState } from 'react'
-import { Post, Postt } from './types'
+import { Post } from './types'
 
 async function getPosts() {
   const res = await fetch("/api/get_all_posts", {
@@ -34,8 +34,6 @@ export default  function Home() {
         console.error(error);
       });
   }, []);
-
-console.log(posts, "POSTEOS");
 
   return (
     <div className={styles.main}>
