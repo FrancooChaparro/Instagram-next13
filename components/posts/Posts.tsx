@@ -139,7 +139,7 @@ const Posts: React.FC<props> = ({
     }
   }
 
-  console.log(userData);
+
   
   return (
     <div className={styles.containerAll}>

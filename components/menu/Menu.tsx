@@ -34,6 +34,7 @@ const Menu = () => {
   const router = useRouter()
 
   const userPrueba: UserData = {
+    id: 100,
     image: "/images/profile.jpg",
     posts: [
       {
@@ -120,6 +121,8 @@ const Menu = () => {
           username={e.username}
           name={e.name}
           imagen={e.image}
+          id={e.id}
+          userActiveID={userData?.id || 100}
           />
         }).splice(0,index)}
       </div>
