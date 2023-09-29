@@ -75,7 +75,8 @@ const Menu = () => {
       ]);
 
       setUserData(userDataFromLocalStorage);
-      setUsers(usersData);
+      let seeAll = await usersData.filter((e: User) => e.id !== userDataFromLocalStorage.id )
+      setUsers(seeAll);
     };
 
     fetchData();

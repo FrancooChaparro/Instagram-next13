@@ -1,6 +1,54 @@
 import prisma from "@/app/lib/prismadb";
 import { NextRequest, NextResponse } from "next/server";
 
+async function getUserFollowData(userId: number) {
+  const user = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+    include: {
+      posts: true,
+      coments: true,
+      like: {
+        include: {
+          post: true,
+        },
+      },
+    },
+  });
+
+  let seguidos: any[] = []; // Inicializa la variable con un array vacío
+  let arrayseguidos = user?.following;
+  if (arrayseguidos) {
+    for (const e of arrayseguidos) {
+      let user = await prisma.user.findUnique({
+        where: {
+          id: e,
+        },
+      });
+      seguidos.push(user);
+    }
+  }
+
+  let seguidores: any[] = []; // Inicializa la variable con un array vacío
+  let arrayFollows = user?.followers;
+  if (arrayFollows) {
+    for (const e of arrayFollows) {
+      let user = await prisma.user.findUnique({
+        where: {
+          id: e,
+        },
+      });
+      seguidores.push(user);
+    }
+  }
+  return {
+    ...user,
+    seguidos,
+    seguidores,
+}
+}
+
 export async function POST(request: NextRequest) {
   const body = await request.json();
   const { followerId, followingId } = body;
@@ -65,7 +113,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Si las verificaciones pasan, realizar las actualizaciones
-    await prisma.user.update({
+   const userResponse = await prisma.user.update({
       where: {
         id: followingId,
       },
@@ -74,6 +122,15 @@ export async function POST(request: NextRequest) {
           push: followerId,
         },
       },
+      include: {
+      posts: true,
+      coments: true,
+      like: {
+        include: {
+          post: true,
+        },
+      },
+      }
     });
 
     await prisma.user.update({
@@ -87,9 +144,11 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    const user = await getUserFollowData(userResponse.id)
+
     return NextResponse.json({
       status: true,
-      msg: "Follow relationships created successfully",
+      user,
     });
   } catch (error) {
     return NextResponse.json({ msg: `Error 404 - ${error}` });

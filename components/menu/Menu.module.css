@@ -48,6 +48,8 @@
     cursor: pointer;
   }
 
+ 
+
   .containerSuggestionsHeader {
     display: flex;
     justify-content: space-between;
@@ -91,6 +93,7 @@
     justify-content: flex-end;
     margin-left: auto;
   }
+ 
   .containerUserElipsis {
     display: flex;
     justify-content: center;
@@ -100,6 +103,14 @@
     cursor: pointer;
   }
 
+.follow {
+  font-size: 14px;
+  color: var(--background-facebook);
+}
+.following {
+  font-size: 14px;
+  color: grey;
+}
 .menuFooter {
     display: flex;
     flex-direction: column;

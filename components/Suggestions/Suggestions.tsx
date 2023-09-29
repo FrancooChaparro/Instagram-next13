@@ -1,4 +1,5 @@
-import React from 'react';
+"use client"
+import React, { useState } from 'react';
 import styles from "../menu/Menu.module.css";
 import Image from 'next/image';
 
@@ -12,6 +13,11 @@ interface props {
 export const Suggestions: React.FC<props>  = ({
   username, imagen, name
 }) => {
+  const [seguir, setseguir] = useState(true)
+
+  function setFollowing() { 
+    setseguir(!seguir)
+  }
   return (
     <div className={styles.containerUser}>
     <div className={styles.containerUserImage}>
@@ -27,7 +33,7 @@ export const Suggestions: React.FC<props>  = ({
       <span>{name}</span>
     </div>
     <div className={styles.containerUserElipsis}>
-      <span>Follow</span>
+      <span className={seguir ? styles.follow : styles.following} onClick={()=> setFollowing()}>{seguir ? "Follow" : "Following" }</span>
     </div>
    </div>
   )
