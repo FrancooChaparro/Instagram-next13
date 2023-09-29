@@ -14,13 +14,23 @@ export interface Postt {
         liked: false,
         authorId: number
 }
+
+export interface Like {
+    id: number
+    authorIdLike: number 
+    PostIdLike: number
+    author: Author
+  }
+  
 export interface Author {
     id: string,
     email: string,
     name: string,
     username: string,
     password: string,
-    image:string
+    image:string,
+    followers: number[],
+    following: number[]
 }
 
 export interface Coment { 
@@ -39,6 +49,7 @@ export interface Post {
     authorId: number
     author: Author
     comments: Coment[]
+    likes: Like[]
 }
 
 export interface User { 
@@ -68,3 +79,5 @@ export interface UserData {
     name: string;
     username: string;
   }
+
+

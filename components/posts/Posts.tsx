@@ -6,7 +6,7 @@ import { FaRegComment } from "react-icons/fa";
 import { BsSave } from "react-icons/bs";
 import { FcLike } from "react-icons/fc";
 import Image from "next/image";
-import { Coment } from "@/app/types";
+import { Coment, Like } from "@/app/types";
 
 interface props {
   title: string,
@@ -22,18 +22,17 @@ interface props {
     image: string
 },
 comments: Coment[]
+likes: Like[]
 }
 const Posts: React.FC<props> = ({ 
-  title, image, liked, author, comments
+  title, image, liked, author, comments, authorId, likes
 }) => {
-  console.log(comments);
-  
-  const [like, setLike] = useState(false)
-  const [number, setNumber] = useState(72)
+  const [like, setLike] = useState(liked)
+  const [number, setNumber] = useState(likes.length)
   const opLi = () => {
     setLike(!like)
-    if (like) return setNumber(72)
-    setNumber(73)
+    if (like) return setNumber(likes.length)
+    setNumber(likes.length+1)
   }
   return (
     <div className={styles.containerAll}>
@@ -81,7 +80,9 @@ const Posts: React.FC<props> = ({
         </div>
       </div>
       <div className={styles.containerUser}>
-        <h4>{number} Likes</h4>
+      {
+       number ? <h4>{number} Likes</h4> : null
+      } 
         <div>
           <span>
             <strong>{author.name}</strong> {title}
@@ -93,7 +94,7 @@ const Posts: React.FC<props> = ({
           return (
             <div key={e.id} className={styles.coment}>
               <span>
-                <strong style={{ marginRight: "4px" }}>{e.author.username}</strong>
+                <strong style={{ marginRight: "4px" }}>{e.author.name}</strong>
                 {e.content}
               </span>
             </div>

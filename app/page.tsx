@@ -35,14 +35,15 @@ export default  function Home() {
       });
   }, []);
 
+console.log(posts, "POSTEOS");
 
   return (
     <div className={styles.main}>
       <Nav />
       <div className={styles.hola}>
         <Historys />
-        {posts.length ? posts.map((e : Post) => {
-          return <Posts key={e.id} title={e.title} image={e.image} liked={e.liked} authorId={e.authorId} author={e.author} comments={e.comments} />
+        {posts.length ? posts.map((e: Post) => {
+          return <Posts key={e.id} title={e.title} image={e.image} liked={e.liked} authorId={e.authorId} author={e.author} comments={e.comments} likes={e.likes} />
         }) : 
         <div className={styles.spinner}></div>
  }

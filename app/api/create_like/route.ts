@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    const postExist = await prisma.user.findUnique({
+    const postExist = await prisma.post.findUnique({
       where: {
         id: parseInt(PostIdLike),
       },
@@ -39,6 +39,14 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    await prisma.post.update({
+      where: {
+        id: PostIdLike,
+      },
+      data: {
+        liked: true,
+      },
+    });
     return NextResponse.json(like);
   } catch (error) {
     return NextResponse.json({ msg: `Error 404 - ${error}` });
