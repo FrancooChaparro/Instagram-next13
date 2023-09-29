@@ -32,6 +32,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const existingLike = await prisma.like.findFirst({
+      where: {
+        authorIdLike: parseInt(authorIdLike, 10),
+        PostIdLike: parseInt(PostIdLike, 10),
+      },
+    });
+
+    if (existingLike) {
+      return NextResponse.json(
+        { status: false, msg: "Like already exists for this user and post" },
+        { status: 400 }
+      );
+    }
     const like = await prisma.like.create({
       data: {
         authorIdLike,
