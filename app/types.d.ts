@@ -72,6 +72,7 @@ export interface User {
 
 
 export interface UserData {
+    id: number;
     image: string;
     posts: Postt[];
     followers: number[];

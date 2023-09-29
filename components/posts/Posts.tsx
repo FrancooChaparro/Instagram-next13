@@ -8,12 +8,50 @@ import { FcLike } from "react-icons/fc";
 import Image from "next/image";
 import { Coment, Like, UserData } from "@/app/types";
 
+async function like_post(props : {PostIdLike: number, authorIdLike: number}) {
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(props),
+  };
+  const res = await fetch("/api/create_like", requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("La solicitud no fue exitosa");
+      }
+      return response.json();
+    })
+    .then((data) => { 
+    });
+}
+
+async function create_coment(props:{content: string, authorIdComent: number, postId: number}) {
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(props),
+  };
+  const res = await fetch("/api/create_coment", requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("La solicitud no fue exitosa");
+      }
+      return response.json();
+    })
+    .then((data) => {
+    });
+}
 interface comentarios {
   name: string
   content: string
 }
 
 interface props {
+  id: number,
   title: string,
   image: string,
   liked: boolean,
@@ -30,7 +68,7 @@ comments: Coment[]
 likes: Like[]
 }
 const Posts: React.FC<props> = ({ 
-  title, image, liked, author, comments, authorId, likes
+  title, image, liked, author, comments, authorId, likes, id
 }) => {
   const [userData, setUserData] = useState<UserData | null>(null);
 
@@ -67,6 +105,9 @@ const Posts: React.FC<props> = ({
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
+      if (userData) {
+       create_coment({postId: id, authorIdComent: userData?.id, content: inputValues.content})
+      }
       setInputValues({
         ...inputValues,
         name: userData?.name || "UserTest",
@@ -79,14 +120,15 @@ const Posts: React.FC<props> = ({
     }
   };
   const opLi = () => {
+    if (userData) {
+      like_post({PostIdLike: id, authorIdLike: userData?.id})
+    }
     if (liked) {
       setLike(!like)
       if (like) {
-        console.log("aca") 
         return setNumber(likes.length-1)
       }
       else {
-        console.log("aca2") 
        setNumber(likes.length)
       }
     }
@@ -95,8 +137,10 @@ const Posts: React.FC<props> = ({
       if (like) return setNumber(likes.length)
       else setNumber(likes.length+1)
     }
-   
   }
+
+  console.log(userData);
+  
   return (
     <div className={styles.containerAll}>
       <div className={styles.containerHeader}>
@@ -174,9 +218,9 @@ const Posts: React.FC<props> = ({
              );
             })}
       </div>
-      <div className={styles.addComment}>
+   <div className={styles.addComment}>
         <input type="text" value={inputValues.content} name="content"  onKeyPress={handleKeyPress} onChange={handleChange} placeholder="Add a comment..." />
-      </div>
+      </div> 
     </div>
   );
 };
