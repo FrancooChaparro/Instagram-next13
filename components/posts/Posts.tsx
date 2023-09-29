@@ -8,6 +8,11 @@ import { FcLike } from "react-icons/fc";
 import Image from "next/image";
 import { Coment, Like } from "@/app/types";
 
+interface comentarios {
+  name: string
+  content: string
+}
+
 interface props {
   title: string,
   image: string,
@@ -27,12 +32,49 @@ likes: Like[]
 const Posts: React.FC<props> = ({ 
   title, image, liked, author, comments, authorId, likes
 }) => {
+  const [comentarios, setComentarios] = useState<comentarios[]>([]);
   const [like, setLike] = useState(liked)
   const [number, setNumber] = useState(likes.length)
+
+  const [inputValues, setInputValues] = useState({
+    content: "",
+    name: "Franco"
+  });
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setInputValues({
+      ...inputValues,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      setComentarios([...comentarios, inputValues])
+      setInputValues({
+        content: "",
+        name: "Franco"
+      });
+    }
+  };
   const opLi = () => {
-    setLike(!like)
-    if (like) return setNumber(likes.length)
-    setNumber(likes.length+1)
+    if (liked) {
+      setLike(!like)
+      if (like) {
+        console.log("aca") 
+        return setNumber(likes.length-1)
+      }
+      else {
+        console.log("aca2") 
+       setNumber(likes.length)
+      }
+    }
+    else {
+      setLike(!like)
+      if (like) return setNumber(likes.length)
+      else setNumber(likes.length+1)
+    }
+   
   }
   return (
     <div className={styles.containerAll}>
@@ -100,9 +142,19 @@ const Posts: React.FC<props> = ({
             </div>
           );
         })}
+        {comentarios.map((e: comentarios) => {
+          return (
+         <div className={styles.coment}>
+              <span>
+                <strong style={{ marginRight: "4px" }}>{e.name}</strong>
+                {e.content}
+              </span>
+            </div>
+             );
+            })}
       </div>
       <div className={styles.addComment}>
-        <input type="text" placeholder="Add a comment..." />
+        <input type="text" value={inputValues.content} name="content"  onKeyPress={handleKeyPress} onChange={handleChange} placeholder="Add a comment..." />
       </div>
     </div>
   );
