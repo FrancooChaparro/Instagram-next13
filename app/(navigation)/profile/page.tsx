@@ -4,11 +4,13 @@ import styles from "./Profile.module.css";
 import Nav from "@/components/nav/Nav";
 import Image from "next/image";
 import { UserData } from "@/app/types";
+import { AiOutlinePoweroff } from "react-icons/ai";
+import { useRouter } from "next/navigation";
 
 const Profile = () => {
-
-
+  const router = useRouter()
   const userPrueba: UserData = {
+    id: 100,
     image: "/images/profile.jpg",
     posts: [
       {
@@ -54,6 +56,10 @@ const Profile = () => {
     fetchData();
   }, []);
 
+  const Sign_off = () => {
+    localStorage.removeItem('userData');
+    router.push("/login")
+  }
 
   return (
     <div className={styles.main}>
@@ -75,7 +81,7 @@ const Profile = () => {
               <div className={styles.containerFlex}>
                 <button className={styles.message}>Message</button>
                 <button className={styles.btnBlue}>Follow</button>
-                <button className={styles.btnBlue2}>V</button>
+                <button className={styles.btnBlue2} onClick={()=> Sign_off()}><AiOutlinePoweroff /></button>
               </div>
             </div>
 

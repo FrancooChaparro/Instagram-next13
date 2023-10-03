@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     const userID = await prisma.user.findUnique({
       where: {
         id: parseInt(authorId, 10),
-      },
+      }
     });
 
     if (!userID) {
@@ -35,7 +35,23 @@ export async function POST(request: Request) {
       },
     });
 
-    return NextResponse.json({ status: true, post: post }, { status: 200 });
+    const userResponse = await prisma.user.findUnique({
+      where: {
+        id: parseInt(authorId, 10),
+      },
+      include: {
+        posts: true,
+        coments: true,
+        like: {
+          include: {
+            post: true,
+          },
+        },
+      },
+    });
+
+  
+    return NextResponse.json({ status: true, post: post, user: userResponse}, { status: 200 });
   } catch (error) {
     return NextResponse.json({ msg: `Error 404 - ${error}` });
   }

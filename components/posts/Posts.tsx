@@ -19,7 +19,9 @@ async function like_post(props : {PostIdLike: number, authorIdLike: number}) {
   const res = await fetch("/api/create_like", requestOptions)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("La solicitud no fue exitosa");
+        // throw new Error("La solicitud no fue exitosa");
+        console.log(response);
+        
       }
       return response.json();
     })
@@ -38,7 +40,9 @@ async function dislike_post(props : {PostIdLike: number, authorIdLike: number}) 
   const res = await fetch("/api/dislike", requestOptions)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("La solicitud no fue exitosa");
+        // throw new Error("La solicitud no fue exitosa");
+        console.log(response);
+
       }
       return response.json();
     })
@@ -142,6 +146,7 @@ const Posts: React.FC<props> = ({
       });
     }
   };
+
   const opLi = () => {
     if (userData) {
       if(liked) {
@@ -165,7 +170,6 @@ const Posts: React.FC<props> = ({
       else setNumber(likes.length+1)
     }
   }
-
 
   
   return (

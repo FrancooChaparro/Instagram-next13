@@ -21,9 +21,13 @@ async function post_login(props: LoginForm, router: any) {
       return response.json();
     })
     .then((data) => {
-      console.log(data.msg);
-      localStorage.setItem('userData', JSON.stringify(data.msg));
-      router.push("/");
+      console.log(data);
+      if (data.success) {
+        localStorage.setItem('userData', JSON.stringify(data.msg));
+        router.push("/");
+      } else { 
+        alert("The password is invalid")
+      }
     });
 }
 
