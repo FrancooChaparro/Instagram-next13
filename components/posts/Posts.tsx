@@ -8,70 +8,67 @@ import { FcLike } from "react-icons/fc";
 import Image from "next/image";
 import { Coment, Like, UserData } from "@/app/types";
 
-async function like_post(props : {PostIdLike: number, authorIdLike: number}) {
-  const requestOptions = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(props),
-  };
-  const res = await fetch("/api/create_like", requestOptions)
-    .then((response) => {
-      if (!response.ok) {
-        // throw new Error("La solicitud no fue exitosa");
-        console.log(response);
-        
-      }
-      return response.json();
+async function like_post({ PostIdLike, authorIdLike }: { PostIdLike: number, authorIdLike: number }) {
+  try {
+    const response = await fetch("/api/create_like", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ PostIdLike, authorIdLike }),
     })
-    .then((data) => { 
-    });
+    if (!response.ok) {
+      console.log(response);
+      return;
+    }
+    const data = await response.json();
+  } catch (error) {
+    console.error("Error en la solicitud:", error);
+  }
 }
 
-async function dislike_post(props : {PostIdLike: number, authorIdLike: number}) {
-  const requestOptions = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(props),
-  };
-  const res = await fetch("/api/dislike", requestOptions)
-    .then((response) => {
-      if (!response.ok) {
-        // throw new Error("La solicitud no fue exitosa");
-        console.log(response);
-
-      }
-      return response.json();
-    })
-    .then((data) => { 
-      console.log(data);
-      
+async function dislike_post({ PostIdLike, authorIdLike }: { PostIdLike: number, authorIdLike: number }) {
+  try {
+    const response = await fetch("/api/dislike", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ PostIdLike, authorIdLike }),
     });
+
+    if (!response.ok) {
+      console.log(response);
+      return;
+    }
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Error en la solicitud:", error);
+  }
 }
 
-async function create_coment(props:{content: string, authorIdComent: number, postId: number}) {
-  const requestOptions = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(props),
-  };
-  const res = await fetch("/api/create_coment", requestOptions)
-    .then((response) => {
-      if (!response.ok) {
-        // throw new Error("La solicitud no fue exitosa");
-        console.log("DISLIKE");
-        
-      }
-      return response.json();
-    })
-    .then((data) => {
+
+async function create_coment({ content, authorIdComent, postId }: { content: string, authorIdComent: number, postId: number }) {
+  try {
+    const response = await fetch("/api/create_coment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ content, authorIdComent, postId }),
     });
+
+    if (!response.ok) {
+      console.log("Error en la solicitud:", response);
+      return;
+    }
+    const data = await response.json();
+  } catch (error) {
+    console.error("Error en la solicitud:", error);
+  }
 }
+
 interface comentarios {
   name: string
   content: string

@@ -10,6 +10,7 @@
   --calc-rem: calc(14px + (20.56 - 14) * ((100vw - 280px) / (3840 - 280)));
   --font-medium: 0.8rem;
   --primary-black: #000000;
+  --border-radius: 100%
 }
 
 * {

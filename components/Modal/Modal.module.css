@@ -6,7 +6,7 @@
     min-height: 150px;
     z-index: 2;
     padding: 0.5rem;
-    background-color: white;
+    background-color: var(--primary-white);
     border: 1px solid grey;
     border-radius: 0.2rem;
 }
@@ -16,17 +16,16 @@
     justify-content: flex-end;
 }
 .close button { 
-    background-color: white;
+    background-color: var(--primary-white);
     border: none;
-    color: black;
+    color:  var(--primary-black);
     cursor: pointer;
 }
 
 .containerUser {
     padding-left: 0.4rem;
     display: flex;
-    margin-bottom: 0.4rem;
-    margin-bottom: 0.2rem;
+    margin: 0.2rem 0 0.4rem 0;
   }
   .containerUserImage {
     border-radius: 100%;
@@ -38,7 +37,7 @@
   .containerUserImage img {
     width: 100%;
     height: 100%;
-    border-radius: 100%;
+    border-radius:var(--border-radius);
     object-fit: cover;
   }
   .containerUserInfo {
@@ -46,9 +45,8 @@
     height: 100%;
     font-size: 14px;
     text-align: center;
-    padding-left: 1rem;
     cursor: pointer;
-    padding-top: 0.4rem;
+    padding: 0.4rem 0 0 1rem;
   }
   .modal .dont {
     display: flex;

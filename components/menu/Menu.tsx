@@ -5,6 +5,7 @@ import { MenuFooter } from "../MenuFooter/MenuFooter";
 import Image from "next/image";
 import { Postt, User, UserData } from "@/app/types";
 import { useRouter } from "next/navigation";
+
 async function getUsers() {
   const res = await fetch("/api/get_all_users", {
     method: "GET"
@@ -14,7 +15,7 @@ async function getUsers() {
     throw new Error("La solicitud no fue exitosa");
   }
 
-  const data = await res.json(); // Espera la respuesta JSON
+  const data = await res.json(); 
   return data;
 }
 
@@ -29,7 +30,7 @@ const fetchDataFromLocalStorage = async (key: string, defaultValue: UserData) =>
 };
 
 const Menu = () => {
-  const [users, setUsers] = useState([]); // Usa useState para manejar el estado
+  const [users, setUsers] = useState([]);
   const [index, setIndex] = useState(3)
   const router = useRouter()
 
@@ -61,6 +62,8 @@ const Menu = () => {
     following: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     name: "test",
     username: "inside",
+    seguidores: [],
+    seguidos: []
   };
 
   const [userData, setUserData] = useState<UserData | null>(null);
@@ -71,7 +74,7 @@ const Menu = () => {
         fetchDataFromLocalStorage('userData', userPrueba),
         getUsers().catch((error) => {
           console.error('Error al obtener datos de usuarios:', error);
-          return []; // o algún otro valor predeterminado
+          return []; 
         }),
       ]);
 
