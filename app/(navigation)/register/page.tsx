@@ -21,8 +21,12 @@ async function post_register(props: RegisterForm, router: any) {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
-      router.push("/login");
+      if (data.status) {
+        router.push("/login");
+      } else {
+         alert(data.msg  )
+      }
+      
     });
 }
 

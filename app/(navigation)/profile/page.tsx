@@ -6,6 +6,7 @@ import Image from "next/image";
 import { UserData } from "@/app/types";
 import { AiOutlinePoweroff } from "react-icons/ai";
 import { useRouter } from "next/navigation";
+import { Modal } from "@/components/Modal/Modal";
 
 const Profile = () => {
   const router = useRouter()
@@ -89,6 +90,7 @@ const Profile = () => {
               <span>{userData?.posts.length} posts</span>
               <span>{userData?.followers.length} followers</span>
               <span>{userData?.following.length} Following</span>
+              <Modal />
             </div>
 
             <div className={styles.containerTitle}>
