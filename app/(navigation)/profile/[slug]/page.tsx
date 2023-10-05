@@ -117,7 +117,6 @@ export default function Page({ params }: { params: { slug: string } }) {
     return (
       <div className={styles.main}>
         <Nav />
-        <div className={styles.dont}>No existe el user</div>
       </div>
     );
   }

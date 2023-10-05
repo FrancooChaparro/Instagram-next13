@@ -7,6 +7,8 @@ import { BsSave } from "react-icons/bs";
 import { FcLike } from "react-icons/fc";
 import Image from "next/image";
 import { Coment, Like, UserData } from "@/app/types";
+import { useRouter } from 'next/navigation';
+
 
 async function like_post({ PostIdLike, authorIdLike }: { PostIdLike: number, authorIdLike: number }) {
   try {
@@ -95,6 +97,7 @@ const Posts: React.FC<props> = ({
   title, image, liked, author, comments, authorId, likes, id
 }) => {
   const [userData, setUserData] = useState<UserData | null>(null);
+  const router = useRouter()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -181,7 +184,7 @@ const Posts: React.FC<props> = ({
         />
         </div>
         <div className={styles.containerInfo}>
-          <span>{author.name}</span>
+          <span onClick={()=> router.push(`/profile/${id}`)}>{author.name}</span>
           <span>Buenos Aires, Argentina</span>
         </div>
         <div className={styles.containerElipsis}>

@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import styles from "../menu/Menu.module.css";
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+
 
 async function insert_follow({ followerId, followingId }: { followerId: number, followingId: number }) {
   try {
@@ -38,7 +40,7 @@ export const Suggestions: React.FC<props>  = ({
   username, imagen, name, id, userActiveID
 }) => {
   const [seguir, setseguir] = useState(true)
-
+  const router = useRouter()
   function setFollowing() { 
    if(userActiveID !== 100) {
      insert_follow({followerId: id, followingId: userActiveID})
@@ -55,7 +57,7 @@ export const Suggestions: React.FC<props>  = ({
       height={35.2}
       />
     </div>
-    <div className={styles.containerUserInfo}>
+    <div className={styles.containerUserInfo} onClick={()=> router.push(`/profile/${id}`)}>
       <strong><span>{username}</span></strong>
       <span>{name}</span>
     </div>
