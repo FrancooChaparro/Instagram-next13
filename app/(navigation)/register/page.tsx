@@ -6,28 +6,29 @@ import { RegisterForm } from "@/app/types";
 import { useRouter } from "next/navigation";
 
 async function post_register(props: RegisterForm, router: any) {
-  const requestOptions = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(props),
-  };
-  const res = await fetch("/api/register", requestOptions)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("La solicitud no fue exitosa");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      if (data.status) {
-        router.push("/login");
-      } else {
-         alert(data.msg  )
-      }
-      
+  try {
+    const response = await fetch("/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(props),
     });
+
+    if (!response.ok) {
+      throw new Error("La solicitud no fue exitosa");
+    }
+
+    const data = await response.json();
+
+    if (data.status) {
+      router.push("/login");
+    } else {
+      alert(data.msg);
+    }
+  } catch (error) {
+    console.error("Error en la solicitud:", error);
+  }
 }
 
 const Register = () => {

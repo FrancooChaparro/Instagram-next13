@@ -116,7 +116,7 @@ function set (prop: string) {
 
         <div className={styles.containerPosts}>
           <div className={styles.containerBrackets}>
-            <span>POSTS</span>
+            <span style={{borderTop: "1px solid rgb(29, 25, 25)"}}>POSTS</span>
             <span>GUIDES</span>
             <span>REELS</span>
             <span>TAGGED</span>

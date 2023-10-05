@@ -6,29 +6,32 @@ import { LoginForm } from '@/app/types';
 import { useRouter } from 'next/navigation';
 
 async function post_login(props: LoginForm, router: any) {
-  const requestOptions = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(props),
-  };
-  const res = await fetch("/api/login", requestOptions)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("La solicitud no fue exitosa");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-      if (data.success) {
-        localStorage.setItem('userData', JSON.stringify(data.msg));
-        router.push("/");
-      } else { 
-        alert("The password is invalid")
-      }
+  try {
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(props),
     });
+
+    if (!response.ok) {
+      throw new Error("La solicitud no fue exitosa");
+    }
+
+    const data = await response.json();
+
+    console.log(data);
+
+    if (data.success) {
+      localStorage.setItem('userData', JSON.stringify(data.msg));
+      router.push("/");
+    } else {
+      alert("La contraseña no es válida");
+    }
+  } catch (error) {
+    console.error("Error en la solicitud:", error);
+  }
 }
 
 const Login = () => {
