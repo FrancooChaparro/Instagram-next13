@@ -1,6 +1,5 @@
 .containerAll {
   padding: 0.7rem;
-  /* border: 0.1px solid rgb(202, 202, 202); */
   display: flex;
   margin-bottom: 1rem;
   min-width: 38rem;
@@ -10,7 +9,6 @@
   margin-left: 5rem;
   cursor: grab;
   position: relative;
-  /* pointer-events: none; */
 }
 
 .containerAll::-webkit-scrollbar {
@@ -22,13 +20,12 @@
   height: 5rem;
   width: 4rem;
   margin-right: 0.8rem;
-  /* background-color: yellowgreen; */
 }
 .containerHistory span {
-  display: inline-block; /* Hace que el span se comporte como un bloque en línea */
-  width: 100%; /* Ocupa todo el ancho del div */
-  text-overflow: ellipsis; /* Agrega los puntos suspensivos (...) cuando el contenido se desborda */
-  overflow: hidden; /* Oculta el contenido que se desborda */
+  display: inline-block; 
+  width: 100%; 
+  text-overflow: ellipsis; 
+  overflow: hidden;
   white-space: nowrap;
   font-size: 13px;
   padding-top: 4px;
@@ -37,7 +34,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 100%;
+  border-radius: var(--border-radius);
   border: 3px solid salmon;
   height: 4rem;
   width: 4rem;
@@ -45,7 +42,7 @@
 .history img {
   width: 100%;
   height: 100%;
-  border-radius: 100%;
+  border-radius: var(--border-radius);
   object-fit: cover;
 }
 
@@ -96,3 +93,4 @@
 .next {
   right: 0;
 }
+

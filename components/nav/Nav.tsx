@@ -28,7 +28,8 @@ const Nav = () => {
         <FiSend className={styles.icons}/><span>Messages</span>
         </div>
         <div  className={styles.containerSidebar} >
-        <FiHeart className={styles.icons}/><span>Notifications</span>
+        <div  className={styles.containerSidebar2} ><FiHeart className={styles.icons}/><div className={styles.test} /></div><span>Notifications</span>
+        
         </div>
         <div  className={styles.containerSidebar} >
         <MdOutlineAddBox className={styles.icons}/><span>Create</span>

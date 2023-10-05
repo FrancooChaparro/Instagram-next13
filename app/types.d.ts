@@ -82,5 +82,3 @@ export interface UserData {
     seguidos: Author[];
     seguidores: Author[]
   }
-
-

@@ -106,7 +106,6 @@ const Posts: React.FC<props> = ({
         console.error("Error al recuperar datos de localStorage:", error);
       }
     };
-
     fetchData();
   }, []);
  

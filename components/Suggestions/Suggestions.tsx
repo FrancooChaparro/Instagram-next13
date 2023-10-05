@@ -3,26 +3,28 @@ import React, { useState } from 'react';
 import styles from "../menu/Menu.module.css";
 import Image from 'next/image';
 
-async function insert_follow(props : {followerId: number, followingId: number}) {
-  const requestOptions = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(props),
-  };
-  const res = await fetch("/api/insert_follower", requestOptions)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("La solicitud no fue exitosa");
-      }
-      return response.json();
-    })
-    .then((data) => { 
-      console.log(data);
-      localStorage.setItem('userData', JSON.stringify(data.user));
+async function insert_follow({ followerId, followingId }: { followerId: number, followingId: number }) {
+  try {
+    const response = await fetch("/api/insert_follower", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ followerId, followingId }),
     });
+
+    if (!response.ok) {
+      throw new Error("La solicitud no fue exitosa");
+    }
+
+    const data = await response.json();
+    console.log(data);
+    localStorage.setItem('userData', JSON.stringify(data.user));
+  } catch (error) {
+    console.error("Error en la solicitud:", error);
+  }
 }
+
 
 interface props {
   username: string;

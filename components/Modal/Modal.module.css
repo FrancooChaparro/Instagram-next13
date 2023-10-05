@@ -28,7 +28,7 @@
     margin: 0.2rem 0 0.4rem 0;
   }
   .containerUserImage {
-    border-radius: 100%;
+    border-radius: var(--border-radius);
     height: 2.2rem;
     width: 2.2rem;
     border: none;

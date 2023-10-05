@@ -1,139 +1,17 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import styles from "./Historys.module.css"
-import Image from 'next/image'
+import { History } from '../History/History'
 
 
 export const Historys = () => {
+  const array = [1,2,3,4,5,6,7,8,9,10]
   return (
-
     <div className={styles.containerAll}>
-         <div className={styles.containerHistory}>
-        <div className={styles.history}>
-          <Image
-          src="/images/profile.jpg"
-          width={64}
-          height={64}
-          alt="Picture of the author"
-          style={{"objectFit": "cover", objectPosition: "center"}}
-        />
-        </div>
-        <span>Franco Chasro</span>
-        </div>
-
-        <div className={styles.containerHistory}>
-        <div className={styles.history}>
-          <Image
-          src="/images/profile.jpg"
-          width={64}
-          height={64}
-          alt="Picture of the author"
-          style={{"objectFit": "cover", objectPosition: "center"}}
-        />
-        </div>
-        <span>Franco Chasro</span>
-        </div>
-        <div className={styles.containerHistory}>
-        <div className={styles.history}>
-         <Image
-          src="/images/profile.jpg"
-          width={64}
-          height={64}
-          alt="Picture of the author"
-          style={{"objectFit": "cover", objectPosition: "center"}}
-        />
-        </div>
-        <span>Franco Chasro</span>
-        </div>
-
-        <div className={styles.containerHistory}>
-        <div className={styles.history}>
-         <Image
-          src="/images/profile.jpg"
-          width={64}
-          height={64}
-          alt="Picture of the author"
-          style={{"objectFit": "cover", objectPosition: "center"}}
-        />
-        </div>
-        <span>Franco Chasro</span>
-        </div>
-        <div className={styles.containerHistory}>
-        <div className={styles.history}>
-         <Image
-          src="/images/profile.jpg"
-          width={64}
-          height={64}
-          alt="Picture of the author"
-          style={{"objectFit": "cover", objectPosition: "center"}}
-        />
-        </div>
-        <span>Franco Chasro</span>
-        </div>
-
-        <div className={styles.containerHistory}>
-        <div className={styles.history}>
-         <Image
-          src="/images/profile.jpg"
-          width={64}
-          height={64}
-          alt="Picture of the author"
-          style={{"objectFit": "cover", objectPosition: "center"}}
-        />
-        </div>
-        <span>Franco Chasro</span>
-        </div>
-        <div className={styles.containerHistory}>
-        <div className={styles.history}>
-         <Image
-          src="/images/profile.jpg"
-          width={64}
-          height={64}
-          alt="Picture of the author"
-          style={{"objectFit": "cover", objectPosition: "center"}}
-        />
-        </div>
-        <span>Franco Chasro</span>
-        </div>
-
-        <div className={styles.containerHistory}>
-        <div className={styles.history}>
-         <Image
-          src="/images/profile.jpg"
-          width={64}
-          height={64}
-          alt="Picture of the author"
-          style={{"objectFit": "cover", objectPosition: "center"}}
-        />
-        </div>
-        <span>Franco Chasro</span>
-        </div>
-        <div className={styles.containerHistory}>
-        <div className={styles.history}>
-         <Image
-          src="/images/profile.jpg"
-          width={64}
-          height={64}
-          alt="Picture of the author"
-          style={{"objectFit": "cover", objectPosition: "center"}}
-        />
-        </div>
-        <span>Franco Chasro</span>
-        </div>
-
-        <div className={styles.containerHistory}>
-        <div className={styles.history}>
-         <Image
-          src="/images/profile.jpg"
-          width={64}
-          height={64}
-          alt="Picture of the author"
-          style={{"objectFit": "cover", objectPosition: "center"}}
-        />
-        </div>
-        <span>Franco Chasro</span>
-        </div> 
-    
-        </div>
-
+     {
+      array.map((e, index) => {
+        return <History key={index} />
+      })
+     }
+    </div>
   )
 }
