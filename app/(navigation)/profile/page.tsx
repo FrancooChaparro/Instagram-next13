@@ -10,6 +10,8 @@ import { Modal } from "@/components/Modal/Modal";
 
 const Profile = () => {
   const router = useRouter()
+  const [modal, setModal] = useState(false)
+  const [setter, setSetter] = useState("")
   const userPrueba: UserData = {
     id: 100,
     image: "/images/profile.jpg",
@@ -38,6 +40,8 @@ const Profile = () => {
     following: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     name: "test",
     username: "inside",
+    seguidores: [],
+    seguidos: []
   };
 
   const [userData, setUserData] = useState<UserData | null>(null);
@@ -61,6 +65,10 @@ const Profile = () => {
     localStorage.removeItem('userData');
     router.push("/login")
   }
+function set (prop: string) {
+  setModal(!modal)
+  setSetter(prop)
+}
 
   return (
     <div className={styles.main}>
@@ -88,9 +96,9 @@ const Profile = () => {
 
             <div className={styles.containerFollow}>
               <span>{userData?.posts.length} posts</span>
-              <span>{userData?.followers.length} followers</span>
-              <span>{userData?.following.length} Following</span>
-              <Modal />
+              <span onClick={()=> set("followers")}>{userData?.followers.length} followers</span>
+              <span onClick={()=> set("following")}>{userData?.following.length} following</span>
+              {modal && <Modal modal={modal} setModal={setModal} seguidos={setter === "following" ? userData?.seguidos : userData?.seguidores} />}
             </div>
 
             <div className={styles.containerTitle}>
@@ -115,7 +123,6 @@ const Profile = () => {
           </div>
           <div className={styles.containerImages}>
             {userData?.posts.map((e, index) => {
-              console.log(e);
               return <img key={index} src={e.image} alt={e.title} />;
             })}
           </div>

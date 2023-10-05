@@ -89,6 +89,7 @@
     font-size: 15px;
     font-weight: bold;
     position: relative;
+    cursor: pointer;
 }
 
 .containerTitle {

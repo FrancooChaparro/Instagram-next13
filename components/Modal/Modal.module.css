@@ -3,16 +3,23 @@
     top: 0;
     right: 0;
     min-width: 250px;
-    min-height: 250px;
+    min-height: 150px;
     z-index: 2;
     padding: 0.5rem;
     background-color: white;
     border: 1px solid grey;
+    border-radius: 0.2rem;
 }
 
 .close {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
+}
+.close button { 
+    background-color: white;
+    border: none;
+    color: black;
+    cursor: pointer;
 }
 
 .containerUser {
@@ -42,4 +49,8 @@
     padding-left: 1rem;
     cursor: pointer;
     padding-top: 0.4rem;
+  }
+  .modal .dont {
+    display: flex;
+    justify-content: center;
   }

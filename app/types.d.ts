@@ -79,6 +79,8 @@ export interface UserData {
     following: number[];
     name: string;
     username: string;
+    seguidos: Author[];
+    seguidores: Author[]
   }
 
 
