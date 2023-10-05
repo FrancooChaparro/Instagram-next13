@@ -102,14 +102,13 @@ function set (prop: string) {
             </div>
 
             <div className={styles.containerTitle}>
-              <span>{userData?.name}</span>
+            <strong><span>{userData?.name}</span> </strong >
               <span>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos
                 mollitia perspiciatis magnam blanditiis iste ipsam adipisci
                 asperiores, obcaecati fuga at. A aut atque veritatis qui vero
                 quisquam ut et in!
               </span>
-              <span>Follow back!</span>
             </div>
           </div>
         </div>

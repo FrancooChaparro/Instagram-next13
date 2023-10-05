@@ -74,6 +74,20 @@
     font-weight: bold;
 }
 
+.message2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.1rem solid grey;
+    width: 4.3rem;
+    height: 1.6rem;
+    color: rgb(17, 17, 17);
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
 .containerButtons span {
     display: flex;
     align-items: center;
@@ -120,12 +134,19 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5px;
-    justify-content: space-between; /* Distribuir el espacio sobrante entre las columnas */
+    justify-content: space-between;
     align-content: flex-end;
 }
-
+.dont{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(145, 145, 145);
+}
 .containerImages img{
-   width: 100%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }
