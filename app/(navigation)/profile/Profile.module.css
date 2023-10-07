@@ -26,7 +26,6 @@
     border: 0.3rem solid salmon;
 }
 .containerProfileInfo {
-    background-color: var(--background);
     max-width: 22rem;
 }
 

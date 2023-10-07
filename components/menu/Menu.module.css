@@ -125,3 +125,9 @@
   font-size: 15px;
   cursor: pointer;
 }
+
+@media (max-width: 1300px) {
+ .containerAll { 
+  display: none;
+ }
+}

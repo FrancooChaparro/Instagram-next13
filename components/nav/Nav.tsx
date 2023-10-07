@@ -38,11 +38,11 @@ const Nav = () => {
           alt="logo"
         />
       </div>
-      <div onClick={() => router.push("/")} className={styles.containerSidebar}>
+      <div onClick={() => router.push("/")} className={styles.containerSidebarResponsive}>
         <MdHomeFilled className={styles.icons} />
         <span>Home</span>
       </div>
-      <div className={styles.containerSidebar}>
+      <div className={styles.containerSidebarResponsive}>
         <BsSearch className={styles.icons} />
         <span>Search</span>
       </div>
@@ -54,20 +54,21 @@ const Nav = () => {
         <FiSend className={styles.icons} />
         <span>Messages</span>
       </div>
-      <div className={styles.containerSidebar}>
-        <div className={styles.containerSidebar2}>
-          <FiHeart className={styles.icons} />
-          <div className={styles.test} />
-        </div>
-        <span>Notifications</span>
-      </div>
-      <div className={styles.containerSidebar}>
+      <div className={styles.containerSidebarResponsive}>
         <MdOutlineAddBox className={styles.icons} />
         <span>Create</span>
       </div>
+      <div className={styles.containerSidebarResponsive} >
+        <div className={styles.containerSidebar2} onClick={()=> router.push("/notifications")}>
+          <FiHeart className={styles.icons} />
+          <div className={styles.test} />
+        </div>
+        <span onClick={()=> router.push("/notifications")}>Notifications</span>
+      </div>
+      
       <div
         onClick={() => router.push("/profile")}
-        className={styles.containerSidebar}
+        className={styles.containerSidebarResponsive}
       >
         <AiOutlineUser className={styles.icons} />
         <span>Profile</span>

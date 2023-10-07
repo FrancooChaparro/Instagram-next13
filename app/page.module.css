@@ -8,7 +8,6 @@
     max-height: max-content;
     overflow-y: scroll; 
     overflow-x: hidden;
-    /* padding-left: 8rem; */
     position: relative;
     padding-right: 5rem;
 }
@@ -17,7 +16,6 @@
     position: absolute;
     top: 0;
     right: 0;
-    /* margin-left: auto;  */
 }
 .spinner {
     width: 50px;
@@ -35,3 +33,10 @@
     100% { transform: rotate(360deg); }
   }
   
+
+  @media (max-width: 999px) {
+    .main { 
+        display: flex;
+        flex-direction: column-reverse;
+    }
+   }
