@@ -120,7 +120,6 @@ export default function Page({ params }: { params: { slug: string } }) {
       </div>
     );
   }
-  const incl = userData?.following.includes(Number(params.slug))
 
   function set (prop: string) {
     setModal(!modal)

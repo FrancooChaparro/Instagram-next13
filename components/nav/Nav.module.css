@@ -32,6 +32,7 @@
     align-items: center;
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
+    position: relative;
 }
 .cont span {
     font-size: 12px;
@@ -73,3 +74,22 @@
     border-radius: 50%; /* Asegura que el borde sea redondeado */
   }
   
+  .blackMode {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    min-width: 150px;
+  }
+
+  .blackMode span { 
+    padding: 3px;
+    cursor: pointer;
+  }
+
+  .blackMode span:hover {
+    background-color: rgb(192, 188, 188);
+  }
