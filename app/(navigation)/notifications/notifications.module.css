@@ -10,3 +10,11 @@
     padding-left: 2rem;
     padding-top: 2rem;
 }
+
+
+@media (max-width: 800px) {
+    .main { 
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

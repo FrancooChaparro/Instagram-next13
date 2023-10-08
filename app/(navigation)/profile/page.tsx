@@ -113,6 +113,11 @@ function set (prop: string) {
           </div>
         </div>
 
+      <div className={styles.ResponsiveButtons}>
+      <button className={styles.btnBlue}>Follow</button>
+      <button className={styles.message}>Message</button>
+      </div>
+
         <div className={styles.containerPosts}>
           <div className={styles.containerBrackets}>
             <span style={{borderTop: "1px solid rgb(29, 25, 25)"}}>POSTS</span>

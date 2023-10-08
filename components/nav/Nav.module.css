@@ -108,10 +108,10 @@
 
 
   
-  @media (max-width: 999px) {
+  @media (max-width: 800px) {
     .containerAll {
         width: 100vw;
-        height: 10vh;
+        height: 8vh;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -133,5 +133,8 @@
     }
     .containerSidebarResponsive span {
       display: none;
+    }
+    .icons {
+        font-size: 27px;
     }
    }

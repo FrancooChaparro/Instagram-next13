@@ -38,7 +38,7 @@ export default  function Home() {
   return (
     <div className={styles.main}>
       <Nav />
-      <div className={styles.hola}>
+      <div className={styles.containerPosts}>
         <Historys />
         {posts.length ? posts.map((e: Post) => {
           return <Posts key={e.id} id={e.id} title={e.title} image={e.image} liked={e.liked} authorId={e.authorId} author={e.author} comments={e.comments} likes={e.likes} />
