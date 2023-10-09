@@ -54,7 +54,7 @@ const Nav = () => {
         <FiSend className={styles.icons} />
         <span>Messages</span>
       </div>
-      <div className={styles.containerSidebarResponsive}>
+      <div className={styles.containerSidebarResponsive} onClick={() => router.push("/create")}>
         <MdOutlineAddBox className={styles.icons} />
         <span>Create</span>
       </div>

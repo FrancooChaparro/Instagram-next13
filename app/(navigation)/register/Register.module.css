@@ -121,3 +121,10 @@
     color: #49aef1;
     cursor: pointer;
 }
+
+@media (max-width: 500px) {
+    .container {
+        padding-top: 1rem;
+        border: none;
+    }
+}
