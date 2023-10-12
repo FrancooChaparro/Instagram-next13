@@ -4,6 +4,7 @@ import styles from "./Register.module.css";
 import { Input } from "@/components/Input/Input";
 import { RegisterForm } from "@/app/types";
 import { useRouter } from "next/navigation";
+import { useMyContext } from "@/context/ListContext";
 
 async function post_register(props: RegisterForm, router: any) {
   try {
@@ -33,6 +34,7 @@ async function post_register(props: RegisterForm, router: any) {
 
 const Register = () => {
   const router = useRouter();
+  const { black_mode } = useMyContext();
   const [inputValues, setInputValues] = useState<RegisterForm>({
     email: "",
     name: "",
@@ -50,7 +52,7 @@ const Register = () => {
     <div className={styles.containerAll}>
       <div className={styles.dada}>
         <div className={styles.container}>
-          <div className={styles.title}>
+          <div className={black_mode ? styles.title : styles.title_black}>
             <h3>Instagram</h3>
           </div>
           <div className={styles.span}>

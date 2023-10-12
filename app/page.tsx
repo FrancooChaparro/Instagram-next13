@@ -6,6 +6,7 @@ import Posts from '@/components/posts/Posts'
 import Menu from '@/components/menu/Menu'
 import { useEffect, useState } from 'react'
 import { Post } from './types'
+import { useMyContext } from "@/context/ListContext";
 
 async function getPosts() {
   const res = await fetch("/api/get_all_posts", {
@@ -22,6 +23,7 @@ async function getPosts() {
 
 export default  function Home() {
   const [posts, setPosts] = useState([]); // Usa useState para manejar el estado
+  const { black_mode } = useMyContext();
 
   
   useEffect(() => {
@@ -43,7 +45,7 @@ export default  function Home() {
         {posts.length ? posts.map((e: Post) => {
           return <Posts key={e.id} id={e.id} title={e.title} image={e.image} liked={e.liked} authorId={e.authorId} author={e.author} comments={e.comments} likes={e.likes} />
         }) : 
-        <div className={styles.spinner}></div>
+        <div className={black_mode ? styles.spinner : styles.spinner_black}></div>
  }
         <div className={styles.menu}><Menu /></div>
       </div>

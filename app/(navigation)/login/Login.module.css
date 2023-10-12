@@ -34,6 +34,15 @@
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+.title_black {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    color: var(--color-gray-black-mode);
+    margin-bottom: 28px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 .btnRegister {
     width: 100%;
     background-color: #49aef1;

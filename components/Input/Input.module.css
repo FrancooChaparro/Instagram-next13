@@ -8,3 +8,17 @@
     font-size: 10px;
     padding-left: 10px;
 }
+
+.input_black {
+    width: 100%;
+    height: 25px;
+    background-color: rgb(107, 99, 99);
+    border:  0.1px solid rgb(141, 136, 136);
+    margin: 2px 0;
+    color: var(--primary-black);
+    font-size: 10px;
+    padding-left: 10px;
+}
+.input_black::placeholder {
+   color: var(--primary-black);
+}

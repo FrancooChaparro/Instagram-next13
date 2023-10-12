@@ -4,6 +4,7 @@ import styles from "./Login.module.css";
 import { Input } from '@/components/Input/Input';
 import { LoginForm } from '@/app/types';
 import { useRouter } from 'next/navigation';
+import { useMyContext } from "@/context/ListContext";
 
 async function post_login(props: LoginForm, router: any) {
   try {
@@ -36,6 +37,8 @@ async function post_login(props: LoginForm, router: any) {
 
 const Login = () => {
   const router = useRouter()
+  const { black_mode } = useMyContext();
+
   const [inputValues, setInputValues] = useState<LoginForm>({
     email: "",
     password: "",
@@ -51,7 +54,7 @@ const Login = () => {
     <div className={styles.containerAll}>
       <div className={styles.dada}> 
       <div className={styles.container}>
-      <div className={styles.title}>
+      <div className={black_mode ? styles.title : styles.title_black}>
             <h3>Instagram</h3>
         </div>
         <div className={styles.containerInput}>

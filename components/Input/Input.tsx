@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Input.module.css";
+import { useMyContext } from "@/context/ListContext";
 
 interface Props {
   Onchange: any;
@@ -16,10 +17,12 @@ export const Input: React.FC<Props> = ({
   placeholder,
   name
 }) => {
+  const { black_mode } = useMyContext();
+
   return (
     <>
       <input    
-        className={styles.input}
+        className={black_mode ? styles.input: styles.input_black}
         onChange={Onchange}
         value={value}
         name={name}
