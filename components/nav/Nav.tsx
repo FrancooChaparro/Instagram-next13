@@ -52,7 +52,7 @@ const Nav = () => {
         <MdHomeFilled className={black_mode ? styles.icons : styles.icons_black} />
         <span>Home</span>
       </div>
-      <div className={styles.containerSidebarResponsive}>
+      <div className={styles.containerSidebarResponsive} onClick={()=> router.push("/search")}>
         <BsSearch className={black_mode ? styles.icons : styles.icons_black} />
         <span>Search</span>
       </div>
