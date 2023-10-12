@@ -1,3 +1,4 @@
+import { encrypt } from "@/app/helpers/bcrypt";
 import prisma from "@/app/lib/prismadb";
 import { NextResponse } from "next/server";
 
@@ -32,6 +33,9 @@ export async function PUT(request: Request) {
       );
     }
 
+    const passwordHash = await encrypt(password);
+
+
     const user = await prisma.user.update({
       where: {
         id: userId,
@@ -41,7 +45,7 @@ export async function PUT(request: Request) {
         name,
         image,
         username,
-        password,
+        password: passwordHash,
       },
     });
 

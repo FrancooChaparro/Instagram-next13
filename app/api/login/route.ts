@@ -1,3 +1,4 @@
+import { compare } from "@/app/helpers/bcrypt";
 import prisma from "@/app/lib/prismadb";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -17,7 +18,7 @@ async function getUserFollowData(userId: number) {
     },
   });
 
-  let seguidos: any[] = []; // Inicializa la variable con un array vacío
+  let seguidos: any[] = []; 
   let arrayseguidos = user?.following;
   if (arrayseguidos) {
     for (const e of arrayseguidos) {
@@ -30,7 +31,7 @@ async function getUserFollowData(userId: number) {
     }
   }
 
-  let seguidores: any[] = []; // Inicializa la variable con un array vacío
+  let seguidores: any[] = [];
   let arrayFollows = user?.followers;
   if (arrayFollows) {
     for (const e of arrayFollows) {
@@ -71,7 +72,8 @@ export async function POST(request: NextRequest) {
     if (!userBD)
       return NextResponse.json({ msg: "User not found", success: false });
 
-    const checkPassword = password == userBD.password;
+    const checkPassword = await compare(password, userBD.password);
+    
 
     if (checkPassword) {
       const usersData = await getUserFollowData(userBD.id);

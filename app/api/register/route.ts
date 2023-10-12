@@ -1,3 +1,4 @@
+import { encrypt } from "@/app/helpers/bcrypt";
 import prisma from "@/app/lib/prismadb";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -50,7 +51,8 @@ export async function POST(request: NextRequest) {
 
     if (password && password.length > 0 && password != "") {
       if (regexPassword.test(password)) {
-        infoUser.password = password;
+        const passwordHash = await encrypt(password);
+        infoUser.password = `${passwordHash}`;
       } else {
         return NextResponse.json({ msg: "The password is invalid" });
       }
@@ -62,7 +64,7 @@ export async function POST(request: NextRequest) {
         name,
         username,
         image,
-        password,
+        password: infoUser.password,
       },
     });
     return NextResponse.json({status: true, user: user});
