@@ -167,14 +167,29 @@
         padding: 1rem;
         border-top: 0.1px solid rgb(202, 202, 202);
     }
+    .containerAll_black {
+        width: 100vw;
+        height: 8vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem;
+        border-top: 0.1px solid rgb(65, 62, 62);
+    }
 
     .title {
+        display: none;
+    }
+    .title_black {
         display: none;
     }
     .cont { 
         display: none;
     }
     .containerAll .cont { 
+        display: none;
+    }
+    .containerAll_black .cont { 
         display: none;
     }
     .containerSidebar {
@@ -184,6 +199,9 @@
       display: none;
     }
     .icons {
+        font-size: 27px;
+    }
+    .icons_black {
         font-size: 27px;
     }
    }

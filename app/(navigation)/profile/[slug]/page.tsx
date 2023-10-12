@@ -170,6 +170,11 @@ export default function Page({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
+        <div className={styles.ResponsiveButtons}>
+      <button className={seguir ? styles.btnBlue : styles.message} onClick={()=> setFollowing()}>{seguir ? "Follow" : "Following" }</button>
+      <button className={styles.message}>Message</button>
+      </div>
+
         <div className={styles.containerPosts}>
           <div className={styles.containerBrackets}>
             <span style={{ borderTop: "1px solid rgb(29, 25, 25)" }}>

@@ -86,7 +86,7 @@ function set (prop: string) {
           </div>
           <div className={styles.containerProfileInfo}>
             <div className={styles.containerButtons}>
-              <span>{userData?.username}</span>
+              <span>{userData ? userData?.username : "User Test"}</span>
               <div className={styles.containerFlex}>
                 <button className={styles.message}>Message</button>
                 <button className={styles.btnBlue}>Follow</button>
@@ -126,10 +126,13 @@ function set (prop: string) {
             <span>TAGGED</span>
           </div>
           <div className={styles.containerImages}>
-            {userData?.posts.map((e, index) => {
+            {userData?.posts.length ? userData?.posts.map((e, index) => {
               return <img key={index} src={e.image} alt={e.title} />;
-            })}
+            }) : null}
           </div>
+          {
+              !userData?.posts.length &&  <div className={styles.dont}>No existen posts</div>
+            }
         </div>
       </div>
     </div>
