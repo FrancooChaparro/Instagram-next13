@@ -9,9 +9,14 @@ import { BsSearch } from "react-icons/bs";
 import { FiSend, FiHeart } from "react-icons/fi";
 import { AiOutlineUser, AiOutlineMenu } from "react-icons/ai";
 import { useRouter } from "next/navigation";
+import { useMyContext } from "@/context/ListContext";
+
 
 const Nav = () => {
   const router = useRouter();
+  const { black_mode, setMode } = useMyContext();
+  console.log(black_mode);
+  
   const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     const handleOutsideClick = (event: any) => {
@@ -30,37 +35,42 @@ const Nav = () => {
     router.push("/login")
   }
 
+
+  function toggleDarkMode() {
+    return setMode()
+  }
+
   return (
-    <div className={styles.containerAll}>
-      <div className={styles.title} onClick={() => router.push("/")}>
+    <div className={black_mode ? styles.containerAll : styles.containerAll_black}>
+      <div className={black_mode ? styles.title : styles.title_black} onClick={() => router.push("/")}>
         <img
           src="https://1000logos.net/wp-content/uploads/2017/02/Logo-Instagram.png"
           alt="logo"
         />
       </div>
       <div onClick={() => router.push("/")} className={styles.containerSidebarResponsive}>
-        <MdHomeFilled className={styles.icons} />
+        <MdHomeFilled className={black_mode ? styles.icons : styles.icons_black} />
         <span>Home</span>
       </div>
       <div className={styles.containerSidebarResponsive}>
-        <BsSearch className={styles.icons} />
+        <BsSearch className={black_mode ? styles.icons : styles.icons_black} />
         <span>Search</span>
       </div>
       <div className={styles.containerSidebar}>
-        <MdOutlineExplore className={styles.icons} />
+        <MdOutlineExplore className={black_mode ? styles.icons : styles.icons_black} />
         <span>Explore</span>
       </div>
       <div className={styles.containerSidebar}>
-        <FiSend className={styles.icons} />
+        <FiSend className={black_mode ? styles.icons : styles.icons_black} />
         <span>Messages</span>
       </div>
       <div className={styles.containerSidebarResponsive} onClick={() => router.push("/create")}>
-        <MdOutlineAddBox className={styles.icons} />
+        <MdOutlineAddBox className={black_mode ? styles.icons : styles.icons_black} />
         <span>Create</span>
       </div>
       <div className={styles.containerSidebarResponsive} >
         <div className={styles.containerSidebar2} onClick={()=> router.push("/notifications")}>
-          <FiHeart className={styles.icons} />
+          <FiHeart className={black_mode ? styles.icons : styles.icons_black}/>
           <div className={styles.test} />
         </div>
         <span onClick={()=> router.push("/notifications")}>Notifications</span>
@@ -70,16 +80,16 @@ const Nav = () => {
         onClick={() => router.push("/profile")}
         className={styles.containerSidebarResponsive}
       >
-        <AiOutlineUser className={styles.icons} />
+        <AiOutlineUser className={black_mode ? styles.icons : styles.icons_black} />
         <span>Profile</span>
       </div>
       <div className={styles.cont} onClick={() => setOpenModal(!openModal)}>
-        <AiOutlineMenu className={styles.icons} />
+        <AiOutlineMenu className={black_mode ? styles.icons : styles.icons_black} />
         <span>More</span>
         {openModal && (
-          <div className={styles.blackMode}>
+          <div className={black_mode ? styles.blackMode : styles.blackMode_black}>
             <span onClick={()=> router.push("/profile")}>Profile</span>
-            <span>Black-Mode</span>
+            <span onClick={()=> toggleDarkMode()}>Black-Mode</span>
             <span onClick={() => Sign_off()}>Sing off</span>
           </div>
         )}

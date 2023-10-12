@@ -8,6 +8,7 @@ import { FcLike } from "react-icons/fc";
 import Image from "next/image";
 import { Coment, Like, UserData } from "@/app/types";
 import { useRouter } from 'next/navigation';
+import { useMyContext } from "@/context/ListContext";
 
 
 async function like_post({ PostIdLike, authorIdLike }: { PostIdLike: number, authorIdLike: number }) {
@@ -98,7 +99,7 @@ const Posts: React.FC<props> = ({
 }) => {
   const [userData, setUserData] = useState<UserData | null>(null);
   const router = useRouter()
-
+  const { black_mode } = useMyContext()
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -172,7 +173,7 @@ const Posts: React.FC<props> = ({
 
   
   return (
-    <div className={styles.containerAll}>
+    <div className={black_mode ? styles.containerAll : styles.containerAll_black}>
       <div className={styles.containerHeader}>
         <div className={styles.containerImage}>
           <Image
@@ -248,7 +249,7 @@ const Posts: React.FC<props> = ({
              );
             })}
       </div>
-   <div className={styles.addComment}>
+   <div className={black_mode ? styles.addComment : styles.addComment_black}>
         <input type="text" value={inputValues.content} name="content"  onKeyPress={handleKeyPress} onChange={handleChange} placeholder="Add a comment..." />
       </div> 
     </div>

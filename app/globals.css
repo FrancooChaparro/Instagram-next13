@@ -10,7 +10,9 @@
   --calc-rem: calc(14px + (20.56 - 14) * ((100vw - 280px) / (3840 - 280)));
   --font-medium: 0.8rem;
   --primary-black: #000000;
-  --border-radius: 100%
+  --border-radius: 100%;
+  --color-gray-black-mode: rgb(224, 224, 224);
+  --border-color: rgb(70, 70, 70);
 }
 
 * {
@@ -30,8 +32,18 @@ font-size: var(--calc-rem);
 scroll-behavior: smooth;
 scrollbar-gutter: stable;
 scroll-padding: 0 0.2rem; 
-
 }
+body.dark-mode {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--primary-black);
+  font-family: var(--font-Roboto), var(--font-mono);
+  font-size: var(--calc-rem);
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  scroll-padding: 0 0.2rem;
+  color: var(--color-gray-black-mode)
+  }
 
 /* Agrega estos estilos al archivo CSS correspondiente */
 
