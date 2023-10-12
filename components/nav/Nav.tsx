@@ -89,7 +89,7 @@ const Nav = () => {
         {openModal && (
           <div className={black_mode ? styles.blackMode : styles.blackMode_black}>
             <span onClick={()=> router.push("/profile")}>Profile</span>
-            <span onClick={()=> toggleDarkMode()}>Black-Mode</span>
+            <span onClick={()=> toggleDarkMode()}>{black_mode ? "Black-mode" : "White-mode"}</span>
             <span onClick={() => Sign_off()}>Sing off</span>
           </div>
         )}
