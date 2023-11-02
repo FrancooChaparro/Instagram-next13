@@ -15,8 +15,7 @@ import { useMyContext } from "@/context/ListContext";
 const Nav = () => {
   const router = useRouter();
   const { black_mode, setMode } = useMyContext();
-  console.log(black_mode);
-  
+
   const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     const handleOutsideClick = (event: any) => {

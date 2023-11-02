@@ -21,6 +21,15 @@ const Search = () => {
           <img src={URL_IMG} alt={URL_IMG} />
           <img src={URL_IMG} alt={URL_IMG} />
           <img src={URL_IMG} alt={URL_IMG} />
+          <img src={URL_IMG} alt={URL_IMG} />
+          <img src={URL_IMG} alt={URL_IMG} />
+          <img src={URL_IMG} alt={URL_IMG} />
+          <img src={URL_IMG} alt={URL_IMG} />
+          <img src={URL_IMG} alt={URL_IMG} />
+          <img src={URL_IMG} alt={URL_IMG} />
+          <img src={URL_IMG} alt={URL_IMG} />
+          <img src={URL_IMG} alt={URL_IMG} />
+          <img src={URL_IMG} alt={URL_IMG} />
         </div>
       </div>
     </div>
