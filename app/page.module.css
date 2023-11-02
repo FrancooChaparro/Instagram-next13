@@ -6,14 +6,19 @@
 .containerPosts {
     width: 100%;
     max-height: max-content;
-    overflow-y: scroll; 
+    overflow-y:scroll;
     overflow-x: hidden;
     position: relative;
     padding-right: 5rem;
-}
+    padding-top: 1.6rem;
 
+}
+.containerPosts::-webkit-scrollbar {
+  width: 0; /* Oculta la barra de desplazamiento en navegadores WebKit (como Chrome y Safari) */
+}
 .containerPosts .menu {
     position: absolute;
+    padding-top: 1.6rem;
     top: 0;
     right: 0;
 }
@@ -55,6 +60,7 @@
         min-height: 92vh;
         overflow-y: scroll; 
         overflow-x: hidden;
+        padding-top: 0;
         position: relative;
     }
 
