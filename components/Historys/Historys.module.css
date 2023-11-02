@@ -11,13 +11,11 @@
   margin-top: 2rem;
 }
 
-
 .content {
   flex: 1;
   overflow-y: hidden;
   display: flex;
   overflow-x: scroll;
-  /* Resto de tus estilos para el contenido central */
 }
 
 .content::-webkit-scrollbar {
@@ -41,9 +39,13 @@
 .containerBtnRight {
   width: 25px;
   height: 25px;
-  background-color: yellow;
-  color: black;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   display: none;
+  border-radius: 50%;
 }
 
 .containerAll:hover .containerBtnLeft,
@@ -52,12 +54,6 @@
 }
 
 
-/* .containerBtn button {
-  width: 25px;
-  height: 25px;
-  background-color: yellow;
-  color: black;
-} */
 .containerAll::-webkit-scrollbar {
   height: 5px;
   background-color: transparent;
@@ -93,31 +89,6 @@
   object-fit: cover;
 }
 
-/* .story-container {
-  position: relative;
-  overflow: hidden;
-  width: 200px;
-  height: 100px;
-  margin: 20px auto;
-  border: 1px solid #ccc;
-  display: flex;
-}
-
-.stories {
-  display: flex;
-  transition: transform 0.3s ease-in-out;
-}
-
-.story {
-  width: 150px;
-  height: 100px;
-  background-color: #eee;
-  margin-right: 10px;
-}
-
-.story.active {
-  border: 2px solid #3498db;
-} */
 
 @media (max-width: 800px) {
   .containerAll {

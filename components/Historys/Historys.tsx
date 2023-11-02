@@ -5,7 +5,8 @@ import { History } from '../History/History';
 export const Historys = () => {
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const carouselRef = useRef<HTMLDivElement>(null);
-  
+  const le = "<"
+  const ri = ">"
   const handleScrollLeft = () => {
       if (carouselRef.current) {
           carouselRef.current.scrollBy({
@@ -30,8 +31,8 @@ export const Historys = () => {
         })}
       </div>
         <div className={styles.containerbuttons}>
-        <button className={styles.containerBtnLeft} onClick={() => handleScrollLeft()}>G</button>
-        <button className={styles.containerBtnRight} onClick={() => handleScrollRight()}>G</button>
+        <button className={styles.containerBtnLeft} onClick={() => handleScrollLeft()}>{le}</button>
+        <button className={styles.containerBtnRight} onClick={() => handleScrollRight()}>{ri}</button>
         </div>
       </div>
   );
