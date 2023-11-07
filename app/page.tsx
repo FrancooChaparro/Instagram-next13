@@ -101,10 +101,10 @@ export default  function Home() {
       <Nav />
       <div className={styles.containerPosts}>
         <Historys />
-        {posts.length ? posts.map((e: any) => {
+        {posts.length && posts.map((e: any) => {
           return <Posts key={e.id} id={e.id} title={e.title} image={e.image} liked={e.liked} authorId={e.authorId} author={e.author} comments={e.comments} likes={e.likes} />
-        }) : 
-        <div className={black_mode ? styles.spinner : styles.spinner_black}></div>
+        }) 
+        // <div className={black_mode ? styles.spinner : styles.spinner_black}></div>
  }
         <div className={styles.menu}><Menu /></div>
       </div>
