@@ -22,7 +22,66 @@ async function getPosts() {
 }
 
 export default  function Home() {
-  const [posts, setPosts] = useState([]); // Usa useState para manejar el estado
+  const [posts, setPosts] = useState([
+    {
+      id: 3,
+      title: "MARVEL",
+      image: "/images/deadpoolwebp.webp",
+      liked: true,
+      authorId: 6,
+      author: {
+          id: 6,
+          email: "TEST@hotmail.com",
+          name: "TEST",
+          username: "TEST Studios",
+          password: "a123456",
+          image: "/images/marvel.webp",
+          followers: [],
+          following: [
+              1,
+              5,
+              7,
+              8,
+              4,
+              2,
+              9,
+              10,
+              11
+          ]
+      },
+      comments: [],
+      likes: [],
+    },
+    {
+      id: 3,
+      title: "MARVEL",
+      image: "/images/deadpoolwebp.webp",
+      liked: true,
+      authorId: 6,
+      author: {
+          id: 6,
+          email: "TEST@hotmail.com",
+          name: "TEST",
+          username: "TEST Studios",
+          password: "a123456",
+          image: "/images/marvel.webp",
+          followers: [],
+          following: [
+              1,
+              5,
+              7,
+              8,
+              4,
+              2,
+              9,
+              10,
+              11
+          ]
+      },
+      comments: [],
+      likes: [],
+    }]
+)
   const { black_mode } = useMyContext();
 
   
@@ -42,7 +101,7 @@ export default  function Home() {
       <Nav />
       <div className={styles.containerPosts}>
         <Historys />
-        {posts.length ? posts.map((e: Post) => {
+        {posts.length ? posts.map((e: any) => {
           return <Posts key={e.id} id={e.id} title={e.title} image={e.image} liked={e.liked} authorId={e.authorId} author={e.author} comments={e.comments} likes={e.likes} />
         }) : 
         <div className={black_mode ? styles.spinner : styles.spinner_black}></div>

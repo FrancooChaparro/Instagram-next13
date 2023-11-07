@@ -16,7 +16,7 @@
 .containerPosts::-webkit-scrollbar {
   width: 0; /* Oculta la barra de desplazamiento en navegadores WebKit (como Chrome y Safari) */
 }
-.containerPosts .menu {
+.containerPosts .menu { 
     position: absolute;
     padding-top: 1.6rem;
     top: 0;
