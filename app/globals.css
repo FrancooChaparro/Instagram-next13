@@ -45,31 +45,29 @@ body.dark-mode {
   color: var(--color-gray-black-mode)
   }
 
-/* Agrega estos estilos al archivo CSS correspondiente */
 
-/* Estilos para la barra de desplazamiento en general */
+
 ::-webkit-scrollbar {
-width: 6px; /* Ancho de la barra de desplazamiento */
-height: 6px; /* Altura de la barra de desplazamiento (solo en caso de barra vertical) */
+width: 6px; 
+height: 6px; 
 }
 
-/* Estilos para el "pulgador" (la parte que se arrastra) de la barra de desplazamiento */
 ::-webkit-scrollbar-thumb {
-background-color: #aaa; /* Color del pulgador */
-border-radius: 3px; /* Bordes redondeados */
+background-color: #aaa; 
+border-radius: 3px; 
 }
 
-/* Estilos para el "pulgador" cuando se le pasa el mouse por encima */
+
 ::-webkit-scrollbar-thumb:hover {
-background-color: #888; /* Color del pulgador al pasar el mouse por encima */
+background-color: #888; 
 }
 
-/* Estilos para la barra de desplazamiento de fondo (zona no ocupada por el pulgador) */
+
 ::-webkit-scrollbar-track {
-background-color: #f1f1f1; /* Color de fondo de la barra de desplazamiento */
+background-color: #f1f1f1; 
 }
 
-/* Estilos para la barra de desplazamiento de fondo cuando se le pasa el mouse por encima */
+
 ::-webkit-scrollbar-track:hover {
-background-color: #ddd; /* Color de fondo al pasar el mouse por encima */
+background-color: #ddd; 
 }

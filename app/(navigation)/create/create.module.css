@@ -12,6 +12,7 @@
     position: absolute;
 }
 
+
 .createContainer {
     border: 1px solid grey;
     padding: 2rem;
@@ -35,6 +36,7 @@
     padding-left: 18px;
     background-color: rgb(236, 235, 235);;
 }
+
 
 .input:focus { 
     box-shadow: none;

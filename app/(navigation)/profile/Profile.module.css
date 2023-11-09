@@ -1,229 +1,229 @@
 .main {
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .containerProfile {
-    width: 100%;
-    padding: 1.5rem 8.5rem 2rem;
-    overflow-y: scroll; 
-    overflow-x: hidden;
-    height: 100%;
+  width: 100%;
+  padding: 1.5rem 8.5rem 2rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.containerProfile::-webkit-scrollbar {
+  width: 0;
 }
 .containerHeader {
-    display: flex;
+  display: flex;
 }
 
 .containerProfileImg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12rem;
 }
 .containerProfileImg img {
-    border-radius: 25rem;
-    border: 0.3rem solid salmon;
+  border-radius: 25rem;
+  border: 0.3rem solid salmon;
 }
 .containerProfileInfo {
-    max-width: 22rem;
+  max-width: 22rem;
 }
 
-.containerButtons{
-    display: flex;
-    justify-content: space-between;
+.containerButtons {
+  display: flex;
+  justify-content: space-between;
 }
 
 .btnBlue {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--background-facebook);
-    border: none;
-    width: 4.3rem;
-    height: 1.6rem;
-    color:var(--primary-white);
-    border-radius: 2px;
-    font-size: 13px;
-    margin-left: 0.5rem;
-    cursor: pointer;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-facebook);
+  border: none;
+  width: 4.3rem;
+  height: 1.6rem;
+  color: var(--primary-white);
+  border-radius: 2px;
+  font-size: 13px;
+  margin-left: 0.5rem;
+  cursor: pointer;
 }
 .btnBlue2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--background-facebook);
-    border: none;
-    width: 2.1rem;
-    height: 1.6rem;
-    color:var(--primary-white);
-    border-radius: 2px;
-    font-size: 13px;
-    margin-left: 0.5rem;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-facebook);
+  border: none;
+  width: 2.1rem;
+  height: 1.6rem;
+  color: var(--primary-white);
+  border-radius: 2px;
+  font-size: 13px;
+  margin-left: 0.5rem;
+  cursor: pointer;
 }
-
 
 .btnBlue2:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 .message {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 0.1rem solid grey;
-    width: 4.3rem;
-    height: 1.6rem;
-    color: rgb(17, 17, 17);
-    border-radius: 2px;
-    font-size: 13px;
-    font-weight: bold;
-    cursor: pointer;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.1rem solid grey;
+  width: 4.3rem;
+  height: 1.6rem;
+  color: rgb(17, 17, 17);
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .message2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 0.1rem solid grey;
-    width: 4.3rem;
-    height: 1.6rem;
-    color: rgb(17, 17, 17);
-    border-radius: 2px;
-    font-size: 13px;
-    font-weight: bold;
-    margin-left: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.1rem solid grey;
+  width: 4.3rem;
+  height: 1.6rem;
+  color: rgb(17, 17, 17);
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: 0.5rem;
 }
 
 .containerButtons span {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.containerFollow { 
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    display: flex;
-    justify-content: space-between;
-    font-size: 15px;
-    font-weight: bold;
-    position: relative;
-    cursor: pointer;
+.containerFollow {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
 }
 
 .containerTitle {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .containerFlex {
-    display: flex;
+  display: flex;
 }
 
-
 .containerPosts {
-    border: 1px solid rgb(216, 216, 216);
-    border-bottom: none;
-    margin-top: 2rem;
+  border: 1px solid rgb(216, 216, 216);
+  border-bottom: none;
+  margin-top: 2rem;
 }
 
 .containerBrackets {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .containerBrackets span {
-    padding: 1rem;
-    font-weight: bold;
-    color: grey;
+  padding: 1rem;
+  font-weight: bold;
+  color: grey;
 }
 .containerImages {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 5px;
-    justify-content: space-between;
-    align-content: flex-end;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  justify-content: space-between;
+  align-content: flex-end;
 }
-.dont{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: rgb(145, 145, 145);
+.dont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(145, 145, 145);
 }
-.containerImages img{
+.containerImages img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 .ResponsiveButtons {
-    display: none;
+  display: none;
 }
 @media (max-width: 800px) {
-    .main { 
-        display: flex;
-        flex-direction: column-reverse;
-    }
-    .containerProfile {
-        width: 100vw;
-        height: 100%;
-        padding: 0;
-    }
-    .containerHeader {
-        padding:0.2rem;
-    }
-    .containerButtons {
-        display: none;
-    }
-    .containerProfileImg {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 10rem;
-    }
-    .containerProfileImg img {
-        border-radius: 25rem;
-        width: 100px;
-        height: 100px;
-        border: 0.3rem solid salmon;
-    }
-    .ResponsiveButtons {
-        display: block;
-        width: 100vw;
-        display: flex;
-        justify-content: space-around;
-        padding: 0.3rem;
-        margin-top: 0.3rem;
-    }
-    .message {
-        width: 48%;
-        border-radius: 5px;
-        height:2rem;
-        font-size: 15px;
-    }
-    .btnBlue {
-        width: 48%;
-        border-radius: 5px;
-        height:2rem;
-        font-size: 15px;
-    }
+  .main {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .containerProfile {
+    width: 100vw;
+    height: 100%;
+    padding: 0;
+  }
+  .containerHeader {
+    padding: 0.2rem;
+  }
+  .containerButtons {
+    display: none;
+  }
+  .containerProfileImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+  }
+  .containerProfileImg img {
+    border-radius: 25rem;
+    width: 100px;
+    height: 100px;
+    border: 0.3rem solid salmon;
+  }
+  .ResponsiveButtons {
+    display: block;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.3rem;
+    margin-top: 0.3rem;
+  }
+  .message {
+    width: 48%;
+    border-radius: 5px;
+    height: 2rem;
+    font-size: 15px;
+  }
+  .btnBlue {
+    width: 48%;
+    border-radius: 5px;
+    height: 2rem;
+    font-size: 15px;
+  }
 
-    .containerImages {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 5px;
-        justify-content: space-between;
-        align-content: flex-end;
-    }
-    .containerImages img{
-        width: 100%;
-        height: 10rem;
-        object-fit: cover;
-      }
-      .containerPosts {
-        width: 100vw;
-      }
-   }
+  .containerImages {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    justify-content: space-between;
+    align-content: flex-end;
+  }
+  .containerImages img {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+  }
+  .containerPosts {
+    width: 100vw;
+  }
+}

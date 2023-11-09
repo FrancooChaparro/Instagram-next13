@@ -12,7 +12,9 @@
     padding-right: 1.5rem;
     overflow: scroll;
 }
-
+.containerNotifications::-webkit-scrollbar {
+    width: 0; 
+  }
 .input {
     width: 100%;
     background-color: rgb(230, 223, 223);

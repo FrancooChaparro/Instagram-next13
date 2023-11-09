@@ -16,7 +16,7 @@ async function get_user(prop: string) {
     throw new Error("La solicitud no fue exitosa");
   }
 
-  const data = await res.json(); // Espera la respuesta JSON
+  const data = await res.json();
   return data.user;
 }
 
