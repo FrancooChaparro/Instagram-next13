@@ -10,7 +10,7 @@
     overflow-y:scroll;
     overflow-x: hidden;
     position: relative;
-    /* padding-right: 1rem; */
+    padding-left: 5rem;
     padding-top: 1.6rem;
 }
 
@@ -49,7 +49,11 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-
+  @media (max-width: 1500px) {
+    .containerPosts { 
+       padding-left: 0rem;
+    }
+  }
 
   @media (max-width: 800px) {
     .main { 
