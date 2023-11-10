@@ -10,10 +10,11 @@ const nextConfig = {
       images: { 
         remotePatterns: [
           {
-            hostname: "i.blogs.es"
+            hostname: "yt3.googleusercontent.com"
           }
         ]
       }
 }
 
 module.exports = nextConfig
+
