@@ -117,7 +117,7 @@ export default function Home() {
       <div className={styles.containerPosts}>
         <Historys />
         {
-          posts.length &&
+          posts.length ?
             posts.map((e: any) => {
               return (
                 <Posts
@@ -133,7 +133,7 @@ export default function Home() {
                 />
               );
             })
-          // : <div className={black_mode ? styles.spinner : styles.spinner_black}></div>
+          : <div className={black_mode ? styles.spinner : styles.spinner_black}></div>
         }
         <div className={styles.menu}>
           <Menu />
