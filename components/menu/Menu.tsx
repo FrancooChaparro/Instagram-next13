@@ -32,118 +32,56 @@ const fetchDataFromLocalStorage = async (key: string, defaultValue: UserData) =>
 };
 
 const Menu = () => {
-  const [users, setUsers] = useState([    {
-    id: 13,
-    email: "marvel@hotmail.com",
-    name: "Marvel Studios",
-    username: "marvel",
-    password: "$2b$10$0wgBc0vgwAnxf73gPHwKouH/48tzVbeVLXMy0PnjLvSo2rbvyTTp.",
-    image: "/images/marvel.jpg",
-    followers: [],
-    following: [],
-    posts: [
-        {
-            id: 11,
-            title: "",
-            image: "/images/marvel4.jpg",
-            liked: false,
-            authorId: 13
-        },
-        {
-            id: 9,
-            title: "Background Marvel",
-            image: "/images/marvel2.jpeg",
-            liked: false,
-            authorId: 13
-        },
-        {
-            id: 10,
-            title: "Deadpool",
-            image: "/images/marvel3.avif",
-            liked: false,
-            authorId: 13
-        }
-    ],
-    coments: [],
-    like: [],
-    seguidos: [],
-    seguidores: []
-},
-{
-    id: 14,
-    email: "bill@hotmail.com",
-    name: "Bill Gates",
-    username: "billgates",
-    password: "$2b$10$iuvjqTzdqB5NKUL0ptfj0OgNd0AZVqwLFHdkny8CkewdHo7XlHL4q",
-    image: "/images/bill_gates.jpg",
-    followers: [],
-    following: [],
-    posts: [],
-    coments: [],
-    like: [],
-    seguidos: [],
-    seguidores: []
-},
-{
-    id: 15,
-    email: "elon@hotmail.com",
-    name: "Elon Musk",
-    username: "elonmusk",
-    password: "$2b$10$uGL6Ui7EcBy73zcSWXuc.Oewg01tlnTPtaST9jkd6Gd3AHfCHcvsG",
-    image: "/images/elonmusk.webp",
-    followers: [],
-    following: [],
-    posts: [],
-    coments: [],
-    like: [],
-    seguidos: [],
-    seguidores: []
-},
-{
-    id: 16,
-    email: "shell@hotmail.com",
-    name: "Shell Box",
-    username: "shell",
-    password: "$2b$10$h/AgbNu4KU7tqV5V1NTP3uQ.D0Ck6KC6Y1FX/jeMTZ2Apd0MKZQ4W",
-    image: "/images/shell.jpg",
-    followers: [],
-    following: [],
-    posts: [],
-    coments: [],
-    like: [],
-    seguidos: [],
-    seguidores: []
-},
-{
-    id: 17,
-    email: "uefa@hotmail.com",
-    name: "uefa champions league",
-    username: "uefa",
-    password: "$2b$10$lK5wxmH3xRQS4duiWx8w5OE4IqNnUndxAzN9jx8aMgip7DyJ4w42K",
-    image: "/images/uefa.webp",
-    followers: [],
-    following: [],
-    posts: [],
-    coments: [],
-    like: [],
-    seguidos: [],
-    seguidores: []
-},
-{
-    id: 18,
-    email: "marcos@hotmail.com",
-    name: "Marcos antonio",
-    username: "marcosaq",
-    password: "$2b$10$zEWoR9ON3iOXMbYNwQ/dc.Cm/bYqVkJfEdVmhZmJSN8Q8HgF9OGDC",
-    image: "/images/photo.webp",
-    followers: [],
-    following: [],
-    posts: [],
-    coments: [],
-    like: [],
-    seguidos: [],
-    seguidores: []
-}
+  const [users, setUsers] = useState([
+//     {
+//     id: 13,
+//     email: "marvel@hotmail.com",
+//     name: "Marvel Studios",
+//     username: "marvel",
+//     password: "$2b$10$0wgBc0vgwAnxf73gPHwKouH/48tzVbeVLXMy0PnjLvSo2rbvyTTp.",
+//     image: "/images/marvel.jpg",
+// },
+// {
+//     id: 14,
+//     email: "bill@hotmail.com",
+//     name: "Bill Gates",
+//     username: "billgates",
+//     password: "$2b$10$iuvjqTzdqB5NKUL0ptfj0OgNd0AZVqwLFHdkny8CkewdHo7XlHL4q",
+//     image: "/images/bill_gates.jpg",
+// },
+// {
+//     id: 15,
+//     email: "elon@hotmail.com",
+//     name: "Elon Musk",
+//     username: "elonmusk",
+//     password: "$2b$10$uGL6Ui7EcBy73zcSWXuc.Oewg01tlnTPtaST9jkd6Gd3AHfCHcvsG",
+//     image: "/images/elonmusk.webp",
+// },
+// {
+//     id: 16,
+//     email: "shell@hotmail.com",
+//     name: "Shell Box",
+//     username: "shell",
+//     password: "$2b$10$h/AgbNu4KU7tqV5V1NTP3uQ.D0Ck6KC6Y1FX/jeMTZ2Apd0MKZQ4W",
+//     image: "/images/shell.jpg",
+
+// },
+// {
+//     id: 17,
+//     email: "uefa@hotmail.com",
+//     name: "uefa champions league",
+//     username: "uefa",
+//     password: "$2b$10$lK5wxmH3xRQS4duiWx8w5OE4IqNnUndxAzN9jx8aMgip7DyJ4w42K",
+//     image: "/images/uefa.webp",
+// },
+// {
+//     id: 18,
+//     email: "marcos@hotmail.com",
+//     name: "Marcos antonio",
+//     username: "marcosaq",
+//     password: "$2b$10$zEWoR9ON3iOXMbYNwQ/dc.Cm/bYqVkJfEdVmhZmJSN8Q8HgF9OGDC",
+//     image: "/images/photo.webp",
+// }
 ]);
   const [index, setIndex] = useState(3)
   const router = useRouter()
@@ -232,7 +170,7 @@ const Menu = () => {
         <span className={styles.spanB} onClick={()=> sett()}>{index == 3 ? "See All" : "See Less"}</span>
       </div>
       <div className={styles.containerSuggestions}>
-        {users.map((e: any)=> {
+        {users.map((e: User)=> {
           return <Suggestions 
           key={e.id} 
           username={e.username}
