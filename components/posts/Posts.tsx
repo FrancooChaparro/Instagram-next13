@@ -185,7 +185,7 @@ const Posts: React.FC<props> = ({
         />
         </div>
         <div className={styles.containerInfo}>
-          <span onClick={()=> router.push(`/profile/${id}`)}>{author.name}</span>
+          <span onClick={()=> router.push(`/profile/${authorId}`)}>{author.name}</span>
           <span>Buenos Aires, Argentina</span>
         </div>
         <div className={styles.containerElipsis}>

@@ -13,7 +13,7 @@ export const History = () => {
       style={{"objectFit": "cover", objectPosition: "center"}}
     />
     </div>
-    <span>Franco Chasro</span>
+    <span>Sara Billsbills</span>
     </div>
   )
 }

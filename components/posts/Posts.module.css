@@ -55,6 +55,10 @@
   padding: 0.5rem 0 0 1rem;
 }
 
+
+.containerInfo span {
+  cursor: pointer;
+}
 .containerHeader .containerElipsis {
   display: flex;
   justify-content: flex-end;

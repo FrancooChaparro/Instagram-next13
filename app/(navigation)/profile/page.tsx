@@ -36,10 +36,10 @@ const Profile = () => {
         authorId: 3,
       },
     ],
-    followers: [1, 2, 3, 4, 5, 6],
-    following: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    followers: [],
+    following: [],
     name: "test",
-    username: "inside",
+    username: "usertest",
     seguidores: [],
     seguidos: []
   };
