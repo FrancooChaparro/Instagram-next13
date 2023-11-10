@@ -33,7 +33,7 @@ Ruta Profile, Accedes a tu perfil y ves tus posts y seguidores.
 
 El clon de instagram cuenta con un modo oscuro, en todas sus rutas.
 
-![blackmode](./public/images/blackmdoe.png)
+![blackmode](./public/images/blackmode.png)
 
 
 -------------------------------------------------------------------------------------------------------------
