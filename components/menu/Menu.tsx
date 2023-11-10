@@ -16,7 +16,6 @@ async function getUsers() {
   }
 
   const data = await res.json(); 
-  console.log(data, "ASdas");
   return data;
   
 }

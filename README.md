@@ -1,34 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+                                             INSTAGRAM 2023 PROYECT
 
-## Getting Started
+Desarrollo del BackEnd con Javascript & TypeScript, manejo de sistema CRUD y modelado de la base de datos con prisma y PostgreSQL. Desarrollo del FrontEnd con Javascript, modelado y creación de componentes responsive en NEXT13.
 
-First, run the development server:
+-------------------------------------------------------------------------------------------------------------
+Home app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+![home](./public/images/home.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-------------------------------------------------------------------------------------------------------------
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Ruta Register, creas tu usario, el form esta totalmente controlado en backend y frontend.
 
-## Learn More
+![register](./public/images/register.png)
 
-To learn more about Next.js, take a look at the following resources:
+-------------------------------------------------------------------------------------------------------------
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Ruta Login, accedes a tu cuenta previamente registrada.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![login](./public/images/login.png)
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-------------------------------------------------------------------------------------------------------------
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Ruta Profile, Accedes a tu perfil y ves tus posts y seguidores.
+
+![profile](./public/images/profile.png)
+
+![user](./public/images/user.png)
+
+-------------------------------------------------------------------------------------------------------------
+
+El clon de instagram cuenta con un modo oscuro, en todas sus rutas.
+
+![blackmode](./public/images/blackmdoe.png)
+
+
+-------------------------------------------------------------------------------------------------------------
+
+Ruta notificaciones, ves las notificaciones de tu cuenta.
+
+![notificacion](./public/images/notificaciones.png)
+
+-------------------------------------------------------------------------------------------------------------
+
+Ruta create, Podes crear tu publicacion.
+
+![create](./public/images/create.png)
+
+-------------------------------------------------------------------------------------------------------------
+
+RESPONSIVE APP
+
+Responsive Home
+
+![home](./public/images/responsive.png)
+
+![uefa](./public/images/responsive_uefa.png)

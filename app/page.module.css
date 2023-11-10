@@ -15,7 +15,7 @@
 }
 
 .containerPosts::-webkit-scrollbar {
-  width: 0; /* Oculta la barra de desplazamiento en navegadores WebKit (como Chrome y Safari) */
+  width: 0; 
 }
 
 .containerPosts .menu { 
@@ -49,7 +49,7 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-  
+
 
   @media (max-width: 800px) {
     .main { 
